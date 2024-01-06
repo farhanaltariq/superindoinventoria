@@ -1,8 +1,6 @@
 package middleware
 
 import (
-	"time"
-
 	"github.com/farhanaltariq/fiberplate/common/codes"
 	"github.com/farhanaltariq/fiberplate/common/status"
 	"github.com/farhanaltariq/fiberplate/database/models"
@@ -30,9 +28,12 @@ func AuthInterceptor(c *fiber.Ctx) error {
 	tokenString := c.Get("Authorization")[7:] // Remove "Bearer " prefix
 
 	// Parse the token with custom claims and key
-	token, _ := jwt.ParseWithClaims(tokenString, &models.Claims{}, func(token *jwt.Token) (interface{}, error) {
+	token, err := jwt.ParseWithClaims(tokenString, &models.Claims{}, func(token *jwt.Token) (interface{}, error) {
 		return jwtSecret, nil
 	})
+	if err != nil {
+		return status.Errorf(c, codes.Unauthorized, "Invalid token")
+	}
 
 	// Check if the token is valid
 	if !token.Valid {
@@ -40,12 +41,10 @@ func AuthInterceptor(c *fiber.Ctx) error {
 	}
 
 	// If all checks pass, set the user claims in locals
-	claims, ok := token.Claims.(*models.Claims)
+	_, ok := token.Claims.(*models.Claims)
 	if !ok {
 		return status.Errorf(c, codes.Unauthorized, "Invalid token")
 	}
 
-	logrus.Infoln("Time Now: ", time.Now().Format("2006-01-02 15:04:05"))
-	logrus.Infoln("Expired At : ", claims.ExpiresAt)
 	return c.Next()
 }

@@ -43,7 +43,8 @@ func setupFiberApp() {
 	app = fiber.New(
 		fiber.Config{
 			Prefork:           false,
-			ReduceMemoryUsage: false,
+			ReduceMemoryUsage: true,
+			BodyLimit:         100000 * 1024 * 1024,
 		},
 	)
 

@@ -25,6 +25,7 @@ var _ = Describe("Performance Test", Ordered, func() {
 		}
 		testRequest()
 	})
+
 	Context("Multiple requests", func() {
 		testRequests := func(numRequests int) {
 			It(fmt.Sprintf("Should handle %d requests per second", numRequests), func() {
@@ -87,7 +88,7 @@ var _ = Describe("Performance Test", Ordered, func() {
 		}
 
 		// Run the test with different numbers of requests
-		for _, num := range []int{100, 125} {
+		for _, num := range []int{100, 125, 130} {
 			testRequests(num)
 		}
 	})

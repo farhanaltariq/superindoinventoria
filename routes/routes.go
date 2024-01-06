@@ -4,20 +4,27 @@ import (
 	"github.com/farhanaltariq/fiberplate/controllers"
 	"github.com/farhanaltariq/fiberplate/database"
 	"github.com/farhanaltariq/fiberplate/middleware"
+	"github.com/farhanaltariq/fiberplate/services"
 	"github.com/gofiber/fiber/v2"
 )
 
+func initServices() middleware.Services {
+	db := database.GetDBConnection()
+	return middleware.Services{
+		DB:          db,
+		AuthService: services.NewAuthService(db),
+		UserService: services.NewUserService(db),
+	}
+}
+
 func Init(app *fiber.App) {
-	// add /api prefix to all routes
+	services := initServices()
 
 	api := app.Group("/api")
-
 	api.Get("/", controllers.NewMiscController().HealthCheck)
 
-	db := database.GetDBConnection()
-	Authentications(api.Group("/auth"), db)
+	Authentications(api.Group("/auth"), services)
 
-	userGroup := api.Group("/user/:id")
-	userGroup.Use(middleware.AuthInterceptor) // Use JwtMiddleware for the "/user" route group
-	User(userGroup)
+	api.Use(middleware.AuthInterceptor)
+	User(api.Group("/user"), services)
 }

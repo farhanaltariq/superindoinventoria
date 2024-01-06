@@ -7,7 +7,7 @@ import (
 	"github.com/farhanaltariq/fiberplate/common/status"
 	"github.com/farhanaltariq/fiberplate/common/usertype"
 	"github.com/farhanaltariq/fiberplate/database/models"
-	"github.com/farhanaltariq/fiberplate/services"
+	"github.com/farhanaltariq/fiberplate/middleware"
 	"github.com/farhanaltariq/fiberplate/utils"
 	"github.com/gofiber/fiber/v2"
 	"github.com/sirupsen/logrus"
@@ -19,12 +19,11 @@ type AuthenticationController interface {
 }
 
 type authController struct {
-	authService services.AuthenticationService
-	userService services.UserService
+	middleware.Services
 }
 
-func NewAuthController(authService services.AuthenticationService, userService services.UserService) AuthenticationController {
-	return &authController{authService, userService}
+func NewAuthController(service middleware.Services) AuthenticationController {
+	return &authController{service}
 }
 
 // @Summary Register
@@ -36,7 +35,7 @@ func NewAuthController(authService services.AuthenticationService, userService s
 // @Success 200 {object} common.ResponseMessage
 // @Failure 400 {object} common.ResponseMessage
 // @Router /auth/register [post]
-func (authController *authController) Register(c *fiber.Ctx) error {
+func (s *authController) Register(c *fiber.Ctx) error {
 	auth := models.Register{}
 	if err := json.Unmarshal(c.Body(), &auth); err != nil {
 		return err
@@ -57,7 +56,7 @@ func (authController *authController) Register(c *fiber.Ctx) error {
 		return status.Errorf(c, codes.BadRequest, err.Error())
 	}
 
-	data, err := authController.userService.GetDataByUsernameOrEmail(userOrm)
+	data, err := s.UserService.GetDataByUsernameOrEmail(userOrm)
 	if err != nil || data.ID != 0 {
 		return status.Errorf(c, codes.BadRequest, "Username or email already used")
 	}
@@ -65,7 +64,7 @@ func (authController *authController) Register(c *fiber.Ctx) error {
 	// insert to user tables
 	userData := models.User{}
 	userOrm.UserType = usertype.ADMIN
-	if userData, err = authController.userService.InsertOrUpdate(userOrm); err != nil {
+	if userData, err = s.UserService.InsertOrUpdate(userOrm); err != nil {
 		logrus.Errorln("Failed to register user", err)
 		return status.Errorf(c, codes.BadRequest, err.Error())
 	}
@@ -75,7 +74,7 @@ func (authController *authController) Register(c *fiber.Ctx) error {
 	authOrm.Salt = salt
 	authOrm.UserId = userData.ID
 
-	if err := authController.authService.InsertOrUpdate(*authOrm); err != nil {
+	if err := s.AuthService.InsertOrUpdate(*authOrm); err != nil {
 		logrus.Errorln("Failed to register user", err)
 		return status.Errorf(c, codes.BadRequest, err.Error())
 	}
@@ -95,7 +94,7 @@ func (authController *authController) Register(c *fiber.Ctx) error {
 // @Success 200 {object} models.AuthenticationResponse
 // @Failure 400 {object} common.ResponseMessage
 // @Router /auth/login [post]
-func (authController *authController) Login(c *fiber.Ctx) error {
+func (s *authController) Login(c *fiber.Ctx) error {
 	cred := models.Login{}
 
 	if err := json.Unmarshal(c.Body(), &cred); err != nil {
@@ -106,12 +105,12 @@ func (authController *authController) Login(c *fiber.Ctx) error {
 		return status.Errorf(c, codes.BadRequest, "Username or email is required")
 	}
 
-	data, err := authController.userService.GetDataByUsernameOrEmail(models.User{Username: cred.Username, Email: cred.Email})
+	data, err := s.UserService.GetDataByUsernameOrEmail(models.User{Username: cred.Username, Email: cred.Email})
 	if err != nil || data == (models.User{}) {
 		return status.Errorf(c, codes.BadRequest, "Username or email not found")
 	}
 
-	authData, err := authController.authService.GetDataByUserId(data.ID)
+	authData, err := s.AuthService.GetDataByUserId(data.ID)
 	if err != nil {
 		return status.Errorf(c, codes.BadRequest, err.Error())
 	}
