@@ -21,7 +21,7 @@ func Init(app *fiber.App) {
 	services := initServices()
 
 	api := app.Group("/api")
-	api.Get("/", controllers.NewMiscController().HealthCheck)
+	api.Get("/", controllers.NewMiscController(services).HealthCheck)
 
 	Authentications(api.Group("/auth"), services)
 

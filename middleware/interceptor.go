@@ -1,6 +1,9 @@
 package middleware
 
 import (
+	"fmt"
+	"strings"
+
 	"github.com/farhanaltariq/fiberplate/common/codes"
 	"github.com/farhanaltariq/fiberplate/common/status"
 	"github.com/farhanaltariq/fiberplate/database/models"
@@ -16,34 +19,35 @@ func CommonMiddleware(c *fiber.Ctx) error {
 	return c.Next()
 }
 
-func AuthInterceptor(c *fiber.Ctx) error {
-	jwtSecret := []byte(utils.GetEnv("JWT_SECRET", "secret"))
-
-	// Check if Authorization header is present
-	if c.Get("Authorization") == "" {
-		return c.Status(fiber.StatusUnauthorized).JSON(fiber.Map{"error": "Unauthorized"})
-	}
-
-	// Extract the token from the Authorization header
-	tokenString := c.Get("Authorization")[7:] // Remove "Bearer " prefix
-
-	// Parse the token with custom claims and key
+func validateToken(tokenString string, jwtSecret []byte) error {
 	token, err := jwt.ParseWithClaims(tokenString, &models.Claims{}, func(token *jwt.Token) (interface{}, error) {
 		return jwtSecret, nil
 	})
-	if err != nil {
-		return status.Errorf(c, codes.Unauthorized, "Invalid token")
+
+	if err != nil || !token.Valid {
+		return err
 	}
 
-	// Check if the token is valid
-	if !token.Valid {
-		return status.Errorf(c, codes.Unauthorized, "Invalid token")
-	}
-
-	// If all checks pass, set the user claims in locals
 	_, ok := token.Claims.(*models.Claims)
 	if !ok {
-		return status.Errorf(c, codes.Unauthorized, "Invalid token")
+		return fmt.Errorf("Invalid token")
+	}
+
+	return nil
+}
+
+func AuthInterceptor(c *fiber.Ctx) error {
+	jwtSecret := []byte(utils.GetEnv("JWT_SECRET", "secret"))
+	authHeader := c.Get("Authorization")
+
+	if authHeader == "" || !strings.HasPrefix(authHeader, "Bearer ") {
+		return status.Errorf(c, codes.Unauthorized, "Unauthorized")
+	}
+
+	tokenString := authHeader[7:] // Remove "Bearer " prefix
+
+	if err := validateToken(tokenString, jwtSecret); err != nil {
+		return status.Errorf(c, codes.Unauthorized, "Unauthorized")
 	}
 
 	return c.Next()

@@ -18,12 +18,8 @@ type AuthenticationController interface {
 	Login(c *fiber.Ctx) error
 }
 
-type authController struct {
-	middleware.Services
-}
-
 func NewAuthController(service middleware.Services) AuthenticationController {
-	return &authController{service}
+	return &controller{service}
 }
 
 // @Summary Register
@@ -35,7 +31,7 @@ func NewAuthController(service middleware.Services) AuthenticationController {
 // @Success 200 {object} common.ResponseMessage
 // @Failure 400 {object} common.ResponseMessage
 // @Router /auth/register [post]
-func (s *authController) Register(c *fiber.Ctx) error {
+func (s *controller) Register(c *fiber.Ctx) error {
 	auth := models.Register{}
 	if err := json.Unmarshal(c.Body(), &auth); err != nil {
 		return err
@@ -94,7 +90,7 @@ func (s *authController) Register(c *fiber.Ctx) error {
 // @Success 200 {object} models.AuthenticationResponse
 // @Failure 400 {object} common.ResponseMessage
 // @Router /auth/login [post]
-func (s *authController) Login(c *fiber.Ctx) error {
+func (s *controller) Login(c *fiber.Ctx) error {
 	cred := models.Login{}
 
 	if err := json.Unmarshal(c.Body(), &cred); err != nil {

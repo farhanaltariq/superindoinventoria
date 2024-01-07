@@ -11,14 +11,10 @@ type UserController interface {
 	GetListUser(c *fiber.Ctx) error
 }
 
-type userController struct {
-	middleware.Services
-}
-
 func NewUserController(service middleware.Services) UserController {
-	return &userController{service}
+	return &controller{service}
 }
 
-func (s *userController) GetListUser(c *fiber.Ctx) error {
+func (s *controller) GetListUser(c *fiber.Ctx) error {
 	return status.Successf(c, codes.OK, "OK")
 }
