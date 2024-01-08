@@ -45,6 +45,7 @@ func setupFiberApp() {
 			Prefork:           false,
 			ReduceMemoryUsage: true,
 			BodyLimit:         100000 * 1024 * 1024,
+			Concurrency:       10000,
 		},
 	)
 

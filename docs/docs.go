@@ -144,13 +144,10 @@ const docTemplate = `{
         "models.Login": {
             "type": "object",
             "properties": {
-                "email": {
-                    "type": "string"
-                },
                 "password": {
                     "type": "string"
                 },
-                "username": {
+                "usernameOrEmail": {
                     "type": "string"
                 }
             }

@@ -22,11 +22,9 @@ definitions:
     type: object
   models.Login:
     properties:
-      email:
-        type: string
       password:
         type: string
-      username:
+      usernameOrEmail:
         type: string
     type: object
   models.Register:

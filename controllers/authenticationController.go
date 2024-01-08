@@ -97,11 +97,11 @@ func (s *controller) Login(c *fiber.Ctx) error {
 		return status.Errorf(c, codes.BadRequest, err.Error())
 	}
 
-	if cred.Username == "" && cred.Email == "" {
+	if cred.UsernameOrEmail == "" {
 		return status.Errorf(c, codes.BadRequest, "Username or email is required")
 	}
 
-	data, err := s.UserService.GetDataByUsernameOrEmail(models.User{Username: cred.Username, Email: cred.Email})
+	data, err := s.UserService.GetDataByUsernameOrEmail(models.User{Username: cred.UsernameOrEmail, Email: cred.UsernameOrEmail})
 	if err != nil || data == (models.User{}) {
 		return status.Errorf(c, codes.BadRequest, "Username or email not found")
 	}

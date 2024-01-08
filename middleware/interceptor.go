@@ -30,6 +30,7 @@ func validateToken(tokenString string, jwtSecret []byte) error {
 
 	_, ok := token.Claims.(*models.Claims)
 	if !ok {
+		//lint:ignore ST1005 will sent to user
 		return fmt.Errorf("Invalid token")
 	}
 

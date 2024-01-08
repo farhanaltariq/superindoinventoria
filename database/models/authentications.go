@@ -19,9 +19,8 @@ type Register struct {
 }
 
 type Login struct {
-	Username string `json:"username,omitempty"`
-	Email    string `json:"email,omitempty"`
-	Password string `json:"password"`
+	UsernameOrEmail string `json:"usernameOrEmail"`
+	Password        string `json:"password"`
 }
 
 type AuthenticationResponse struct {
