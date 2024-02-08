@@ -26,7 +26,7 @@ func AutoMigrate(db *gorm.DB) {
 }
 
 func Connect() error {
-	dsn := utils.GetEnv("DB_DSN", "user=postgres password=postgres dbname=boilerplate port=5432 sslmode=disable TimeZone=Asia/Jakarta")
+	dsn := utils.GetEnv("DB_DSN", "user=user password=password dbname=fiber port=5432 sslmode=disable TimeZone=Asia/Jakarta")
 	var config gorm.Dialector
 
 	switch utils.GetEnv("DB_DRIVER", "postgres") {

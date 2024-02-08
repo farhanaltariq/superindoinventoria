@@ -8,14 +8,12 @@ require (
 	github.com/joho/godotenv v1.5.1
 	github.com/sirupsen/logrus v1.9.3
 	github.com/swaggo/swag v1.16.2
+	gorm.io/driver/mysql v1.5.4
 	gorm.io/driver/postgres v1.5.4
 	gorm.io/gorm v1.25.7-0.20240204074919-46816ad31dde
 )
 
-require (
-	github.com/go-sql-driver/mysql v1.7.0 // indirect
-	gorm.io/driver/mysql v1.5.4 // indirect
-)
+require github.com/go-sql-driver/mysql v1.7.0 // indirect
 
 require (
 	github.com/KyleBanks/depth v1.2.1 // indirect
