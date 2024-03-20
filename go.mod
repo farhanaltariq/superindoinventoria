@@ -18,6 +18,7 @@ require github.com/go-sql-driver/mysql v1.7.0 // indirect
 require (
 	github.com/KyleBanks/depth v1.2.1 // indirect
 	github.com/andybalholm/brotli v1.0.6 // indirect
+	github.com/bxcodec/faker/v3 v3.8.1
 	github.com/go-logr/logr v1.3.0 // indirect
 	github.com/go-openapi/jsonpointer v0.20.2 // indirect
 	github.com/go-openapi/jsonreference v0.20.4 // indirect

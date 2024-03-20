@@ -52,6 +52,7 @@ func Connect() error {
 
 	AutoMigrate(db)
 	SetupDBConnection(db)
+	Seed()
 	return nil
 }
 
