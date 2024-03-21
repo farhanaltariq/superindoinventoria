@@ -1,0 +1,1095 @@
+{
+	"info": {
+		"_postman_id": "32ed5cad-1b8e-4f93-9dbc-1efe63dd4630",
+		"name": "Superindo",
+		"description": "# 🚀 Get started here\n\nThis template guides you through CRUD operations (GET, POST, PUT, DELETE), variables, and tests.\n\n## 🔖 **How to use this template**\n\n#### **Step 1: Send requests**\n\nRESTful APIs allow you to perform CRUD operations using the POST, GET, PUT, and DELETE HTTP methods.\n\nThis collection contains each of these [request](https://learning.postman.com/docs/sending-requests/requests/) types. Open each request and click \"Send\" to see what happens.\n\n#### **Step 2: View responses**\n\nObserve the response tab for status code (200 OK), response time, and size.\n\n#### **Step 3: Send new Body data**\n\nUpdate or add new data in \"Body\" in the POST request. Typically, Body data is also used in PUT request.\n\n```\n{\n    \"name\": \"Add your name in the body\"\n}\n\n ```\n\n#### **Step 4: Update the variable**\n\nVariables enable you to store and reuse values in Postman. We have created a [variable](https://learning.postman.com/docs/sending-requests/variables/) called `base_url` with the sample request [https://postman-api-learner.glitch.me](https://postman-api-learner.glitch.me). Replace it with your API endpoint to customize this collection.\n\n#### **Step 5: Add tests in the \"Tests\" tab**\n\nTests help you confirm that your API is working as expected. You can write test scripts in JavaScript and view the output in the \"Test Results\" tab.\n\n<img src=\"https://content.pstmn.io/b5f280a7-4b09-48ec-857f-0a7ed99d7ef8/U2NyZWVuc2hvdCAyMDIzLTAzLTI3IGF0IDkuNDcuMjggUE0ucG5n\">\n\n## 💪 Pro tips\n\n- Use folders to group related requests and organize the collection.\n- Add more [scripts](https://learning.postman.com/docs/writing-scripts/intro-to-scripts/) in \"Tests\" to verify if the API works as expected and execute workflows.\n    \n\n## 💡Related templates\n\n[API testing basics](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9a37a28-055b-49cd-8c7e-97494a21eb54&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[API documentation](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9c28f47-1253-44af-a2f3-20dce4da1f18&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[Authorization methods](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=31a9a6ed-4cdf-4ced-984c-d12c9aec1c27&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22900737",
+		"_collection_link": "https://gold-eclipse-119740.postman.co/workspace/Peronal-Dev~b0fe8989-399c-4e2d-be4e-1857794d4afd/collection/22900737-32ed5cad-1b8e-4f93-9dbc-1efe63dd4630?action=share&source=collection_link&creator=22900737"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"example3\",\n    \"email\": \"test@example3.com\",\n    \"password\": \"Mak3r@admin\",\n    \"confirmPassword\" : \"Mak3r@admin\",\n    \"address\" : \"Mkarel road\",\n    \"fullname\":\"an example\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/register",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "400",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"example2\",\n    \"email\": \"test@example2.com\",\n    \"password\": \"Mak3r@admin\",\n    \"confirmPassword\" : \"Mak3r@admin\",\n    \"address\" : \"Mkarel road\",\n    \"fullname\":\"an example\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/auth/register",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"auth",
+										"register"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 04 Jan 2024 04:11:19 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "68"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": true,\n    \"code\": 400,\n    \"message\": \"Username or email already used\"\n}"
+						},
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"example3\",\n    \"email\": \"test@example3.com\",\n    \"password\": \"Mak3r@admin\",\n    \"confirmPassword\" : \"Mak3r@admin\",\n    \"address\" : \"Mkarel road\",\n    \"fullname\":\"an example\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/auth/register",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"auth",
+										"register"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 04 Jan 2024 04:12:03 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "46"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": false,\n    \"code\": 200,\n    \"message\": \"Success\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"usernameOrEmail\": \"admin\",\n    \"password\": \"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"john\",\n    \"email\": \"mail@example.com\",\n    \"password\": \"Mak3r@admin\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/auth/login",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 03 Jan 2024 11:19:26 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "266"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"Success\",\n    \"access_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJuYW1lIjoiam9objEiLCJlbWFpbCI6Im1haWxAZXhhbXBsZS5jb20iLCJ1c2VySWQiOjR9LCJleHAiOjE3MDQyODA5NDZ9.Lpl3D4WnbFS_S22g241Q0E8xT1TMKKNC1JdMU2u4GxY\",\n    \"expired_at\": \"2024-01-03 19:19:26\"\n}"
+						},
+						{
+							"name": "400",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"john\",\n    \"email\": \"mail@example.com\",\n    \"password\": \"Mak3r@admin123\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/auth/login",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 03 Jan 2024 11:49:24 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "57"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": true,\n    \"code\": 400,\n    \"message\": \"Invalid credentials\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Get List Product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/product",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"product"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get List Product",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/product",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"product"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 21 Mar 2024 15:04:37 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "31380"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Products\": [\n        {\n            \"ID\": 1,\n            \"CreatedAt\": \"2024-03-21T14:20:08.557398+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:20:08.557398+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"Product 1\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 10000\n        },\n        {\n            \"ID\": 2,\n            \"CreatedAt\": \"2024-03-21T14:20:08.561046+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:20:08.561046+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"Product 2\",\n            \"TypeID\": 2,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 20000\n        },\n        {\n            \"ID\": 3,\n            \"CreatedAt\": \"2024-03-21T14:20:08.561549+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:20:08.561549+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"Product 3\",\n            \"TypeID\": 3,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 30000\n        },\n        {\n            \"ID\": 4,\n            \"CreatedAt\": \"2024-03-21T14:20:08.562163+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:20:08.562163+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"Product 4\",\n            \"TypeID\": 4,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 40000\n        },\n        {\n            \"ID\": 5,\n            \"CreatedAt\": \"2024-03-21T14:32:37.671715+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.671715+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"voluptas\",\n            \"TypeID\": 2,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 635.4576246834101\n        },\n        {\n            \"ID\": 6,\n            \"CreatedAt\": \"2024-03-21T14:32:37.6743+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.6743+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"voluptatem\",\n            \"TypeID\": 4,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 28.85639642002906\n        },\n        {\n            \"ID\": 7,\n            \"CreatedAt\": \"2024-03-21T14:32:37.674729+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.674729+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"veniam\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 274.92182415279404\n        },\n        {\n            \"ID\": 8,\n            \"CreatedAt\": \"2024-03-21T14:32:37.675116+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.675116+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"eos\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 799.7871631894782\n        },\n        {\n            \"ID\": 9,\n            \"CreatedAt\": \"2024-03-21T14:32:37.675643+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.675643+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"ipsum\",\n            \"TypeID\": 2,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 689.8834025886645\n        },\n        {\n            \"ID\": 10,\n            \"CreatedAt\": \"2024-03-21T14:32:37.676041+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.676041+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"iste\",\n            \"TypeID\": 2,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 739.3284663139033\n        },\n        {\n            \"ID\": 11,\n            \"CreatedAt\": \"2024-03-21T14:32:37.676449+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.676449+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"ut\",\n            \"TypeID\": 2,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 69.42249340013615\n        },\n        {\n            \"ID\": 12,\n            \"CreatedAt\": \"2024-03-21T14:32:37.676822+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.676822+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"sed\",\n            \"TypeID\": 2,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 263.55085769015125\n        },\n        {\n            \"ID\": 13,\n            \"CreatedAt\": \"2024-03-21T14:32:37.677138+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.677138+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"et\",\n            \"TypeID\": 4,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 146.38588813360457\n        },\n        {\n            \"ID\": 14,\n            \"CreatedAt\": \"2024-03-21T14:32:37.677467+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.677467+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"laborum\",\n            \"TypeID\": 4,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 471.0054427123103\n        },\n        {\n            \"ID\": 15,\n            \"CreatedAt\": \"2024-03-21T14:32:37.677759+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.677759+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"accusamus\",\n            \"TypeID\": 4,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 114.85895768054246\n        },\n        {\n            \"ID\": 16,\n            \"CreatedAt\": \"2024-03-21T14:32:37.678042+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.678042+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"saepe\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 920.050055741631\n        },\n        {\n            \"ID\": 17,\n            \"CreatedAt\": \"2024-03-21T14:32:37.678333+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.678333+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"est\",\n            \"TypeID\": 3,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 161.74010643458195\n        },\n        {\n            \"ID\": 18,\n            \"CreatedAt\": \"2024-03-21T14:32:37.678659+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.678659+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"ipsum\",\n            \"TypeID\": 3,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 669.2512053206708\n        },\n        {\n            \"ID\": 19,\n            \"CreatedAt\": \"2024-03-21T14:32:37.678923+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.678923+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"dolorem\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 854.1809431500328\n        },\n        {\n            \"ID\": 20,\n            \"CreatedAt\": \"2024-03-21T14:32:37.679188+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.679188+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"et\",\n            \"TypeID\": 3,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 348.6428219761627\n        },\n        {\n            \"ID\": 21,\n            \"CreatedAt\": \"2024-03-21T14:32:37.679462+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.679462+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"aspernatur\",\n            \"TypeID\": 3,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 562.2187556161222\n        },\n        {\n            \"ID\": 22,\n            \"CreatedAt\": \"2024-03-21T14:32:37.679757+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.679757+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"est\",\n            \"TypeID\": 4,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 914.2758853355881\n        },\n        {\n            \"ID\": 23,\n            \"CreatedAt\": \"2024-03-21T14:32:37.680034+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.680034+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"iusto\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 653.4733532811189\n        },\n        {\n            \"ID\": 24,\n            \"CreatedAt\": \"2024-03-21T14:32:37.680301+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.680301+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"et\",\n            \"TypeID\": 3,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 7.258889853138576\n        },\n        {\n            \"ID\": 25,\n            \"CreatedAt\": \"2024-03-21T14:32:37.680591+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.680591+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"sequi\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 189.89190281967498\n        },\n        {\n            \"ID\": 26,\n            \"CreatedAt\": \"2024-03-21T14:32:37.680991+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.680991+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"incidunt\",\n            \"TypeID\": 3,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 36.33638564247274\n        },\n        {\n            \"ID\": 27,\n            \"CreatedAt\": \"2024-03-21T14:32:37.68123+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.68123+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"vero\",\n            \"TypeID\": 2,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 611.538001898007\n        },\n        {\n            \"ID\": 28,\n            \"CreatedAt\": \"2024-03-21T14:32:37.681505+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.681505+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"illo\",\n            \"TypeID\": 2,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 951.3375377095306\n        },\n        {\n            \"ID\": 29,\n            \"CreatedAt\": \"2024-03-21T14:32:37.682104+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.682104+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"minima\",\n            \"TypeID\": 2,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 540.9956908019335\n        },\n        {\n            \"ID\": 30,\n            \"CreatedAt\": \"2024-03-21T14:32:37.682299+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.682299+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"vel\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 390.6088061782902\n        },\n        {\n            \"ID\": 31,\n            \"CreatedAt\": \"2024-03-21T14:32:37.682491+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.682491+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"quas\",\n            \"TypeID\": 3,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 240.88123410477192\n        },\n        {\n            \"ID\": 32,\n            \"CreatedAt\": \"2024-03-21T14:32:37.682718+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.682718+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"aliquid\",\n            \"TypeID\": 2,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 707.8880211899918\n        },\n        {\n            \"ID\": 33,\n            \"CreatedAt\": \"2024-03-21T14:32:37.682918+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.682918+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"illum\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 695.0462988020153\n        },\n        {\n            \"ID\": 34,\n            \"CreatedAt\": \"2024-03-21T14:32:37.6831+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.6831+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"id\",\n            \"TypeID\": 4,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 720.033198008239\n        },\n        {\n            \"ID\": 35,\n            \"CreatedAt\": \"2024-03-21T14:32:37.683298+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.683298+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"maiores\",\n            \"TypeID\": 2,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 925.855005857994\n        },\n        {\n            \"ID\": 36,\n            \"CreatedAt\": \"2024-03-21T14:32:37.683502+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.683502+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"qui\",\n            \"TypeID\": 4,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 439.8621361208832\n        },\n        {\n            \"ID\": 37,\n            \"CreatedAt\": \"2024-03-21T14:32:37.683801+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.683801+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"saepe\",\n            \"TypeID\": 2,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 811.1903028795016\n        },\n        {\n            \"ID\": 38,\n            \"CreatedAt\": \"2024-03-21T14:32:37.684052+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.684052+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"deleniti\",\n            \"TypeID\": 4,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 820.0800898366978\n        },\n        {\n            \"ID\": 39,\n            \"CreatedAt\": \"2024-03-21T14:32:37.684341+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.684341+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"odio\",\n            \"TypeID\": 2,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 676.5056774615146\n        },\n        {\n            \"ID\": 40,\n            \"CreatedAt\": \"2024-03-21T14:32:37.684534+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.684534+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"neque\",\n            \"TypeID\": 2,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 17.147870613776927\n        },\n        {\n            \"ID\": 41,\n            \"CreatedAt\": \"2024-03-21T14:32:37.684727+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.684727+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"aut\",\n            \"TypeID\": 3,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 888.8636660340933\n        },\n        {\n            \"ID\": 42,\n            \"CreatedAt\": \"2024-03-21T14:32:37.684931+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.684931+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"vitae\",\n            \"TypeID\": 2,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 253.05291672197467\n        },\n        {\n            \"ID\": 43,\n            \"CreatedAt\": \"2024-03-21T14:32:37.685149+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.685149+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"enim\",\n            \"TypeID\": 3,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 553.1833812104577\n        },\n        {\n            \"ID\": 44,\n            \"CreatedAt\": \"2024-03-21T14:32:37.685353+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.685353+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"ex\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 576.5427562298266\n        },\n        {\n            \"ID\": 45,\n            \"CreatedAt\": \"2024-03-21T14:32:37.685567+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.685567+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"cumque\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 962.9646470696754\n        },\n        {\n            \"ID\": 46,\n            \"CreatedAt\": \"2024-03-21T14:32:37.685771+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.685771+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"odit\",\n            \"TypeID\": 4,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 404.1537606676467\n        },\n        {\n            \"ID\": 47,\n            \"CreatedAt\": \"2024-03-21T14:32:37.685932+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.685932+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"sed\",\n            \"TypeID\": 3,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 208.20091068868362\n        },\n        {\n            \"ID\": 48,\n            \"CreatedAt\": \"2024-03-21T14:32:37.686123+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.686123+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"ullam\",\n            \"TypeID\": 2,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 759.4554657873161\n        },\n        {\n            \"ID\": 49,\n            \"CreatedAt\": \"2024-03-21T14:32:37.686322+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.686322+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"doloribus\",\n            \"TypeID\": 3,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 138.8241105975094\n        },\n        {\n            \"ID\": 50,\n            \"CreatedAt\": \"2024-03-21T14:32:37.68651+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.68651+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"quisquam\",\n            \"TypeID\": 2,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 972.3026139491935\n        },\n        {\n            \"ID\": 51,\n            \"CreatedAt\": \"2024-03-21T14:32:37.686666+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.686666+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"maxime\",\n            \"TypeID\": 2,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 218.59191823749572\n        },\n        {\n            \"ID\": 52,\n            \"CreatedAt\": \"2024-03-21T14:32:37.686816+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.686816+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"molestiae\",\n            \"TypeID\": 3,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 230.2160008944015\n        },\n        {\n            \"ID\": 53,\n            \"CreatedAt\": \"2024-03-21T14:32:37.686981+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.686981+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"soluta\",\n            \"TypeID\": 3,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 388.2556704184638\n        },\n        {\n            \"ID\": 54,\n            \"CreatedAt\": \"2024-03-21T14:32:37.687159+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.687159+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"sunt\",\n            \"TypeID\": 4,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 850.1137384122956\n        },\n        {\n            \"ID\": 55,\n            \"CreatedAt\": \"2024-03-21T14:32:37.687342+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.687342+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"omnis\",\n            \"TypeID\": 3,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 956.1522509689407\n        },\n        {\n            \"ID\": 56,\n            \"CreatedAt\": \"2024-03-21T14:32:37.687519+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.687519+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"fugit\",\n            \"TypeID\": 2,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 557.484423294003\n        },\n        {\n            \"ID\": 57,\n            \"CreatedAt\": \"2024-03-21T14:32:37.687735+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.687735+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"voluptas\",\n            \"TypeID\": 3,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 355.264164534518\n        },\n        {\n            \"ID\": 58,\n            \"CreatedAt\": \"2024-03-21T14:32:37.687912+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.687912+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"ut\",\n            \"TypeID\": 4,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 676.9788186709573\n        },\n        {\n            \"ID\": 59,\n            \"CreatedAt\": \"2024-03-21T14:32:37.688151+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.688151+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"cum\",\n            \"TypeID\": 2,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 293.757574498212\n        },\n        {\n            \"ID\": 60,\n            \"CreatedAt\": \"2024-03-21T14:32:37.688312+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.688312+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"id\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 471.7002365703116\n        },\n        {\n            \"ID\": 61,\n            \"CreatedAt\": \"2024-03-21T14:32:37.688869+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.688869+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"porro\",\n            \"TypeID\": 4,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 178.93464626575022\n        },\n        {\n            \"ID\": 62,\n            \"CreatedAt\": \"2024-03-21T14:32:37.689321+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.689321+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"ratione\",\n            \"TypeID\": 2,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 594.7936684579461\n        },\n        {\n            \"ID\": 63,\n            \"CreatedAt\": \"2024-03-21T14:32:37.68965+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.68965+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"optio\",\n            \"TypeID\": 2,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 36.55266883292705\n        },\n        {\n            \"ID\": 64,\n            \"CreatedAt\": \"2024-03-21T14:32:37.690086+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.690086+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"est\",\n            \"TypeID\": 4,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 264.51735323577554\n        },\n        {\n            \"ID\": 65,\n            \"CreatedAt\": \"2024-03-21T14:32:37.690348+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.690348+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"qui\",\n            \"TypeID\": 4,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 873.768899183654\n        },\n        {\n            \"ID\": 66,\n            \"CreatedAt\": \"2024-03-21T14:32:37.690552+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.690552+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"et\",\n            \"TypeID\": 2,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 962.0338930417864\n        },\n        {\n            \"ID\": 67,\n            \"CreatedAt\": \"2024-03-21T14:32:37.690743+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.690743+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"enim\",\n            \"TypeID\": 4,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 575.3712013389487\n        },\n        {\n            \"ID\": 68,\n            \"CreatedAt\": \"2024-03-21T14:32:37.690918+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.690918+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"dolorem\",\n            \"TypeID\": 4,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 58.849881529161124\n        },\n        {\n            \"ID\": 69,\n            \"CreatedAt\": \"2024-03-21T14:32:37.691081+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.691081+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"voluptas\",\n            \"TypeID\": 4,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 634.8631967917308\n        },\n        {\n            \"ID\": 70,\n            \"CreatedAt\": \"2024-03-21T14:32:37.69125+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.69125+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"ut\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 501.6763511326593\n        },\n        {\n            \"ID\": 71,\n            \"CreatedAt\": \"2024-03-21T14:32:37.691408+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.691408+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"similique\",\n            \"TypeID\": 4,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 716.5890012410963\n        },\n        {\n            \"ID\": 72,\n            \"CreatedAt\": \"2024-03-21T14:32:37.691557+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.691557+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"hic\",\n            \"TypeID\": 3,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 46.65545323138265\n        },\n        {\n            \"ID\": 73,\n            \"CreatedAt\": \"2024-03-21T14:32:37.691707+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.691707+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"est\",\n            \"TypeID\": 3,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 887.4427849305468\n        },\n        {\n            \"ID\": 74,\n            \"CreatedAt\": \"2024-03-21T14:32:37.691868+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.691868+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"aut\",\n            \"TypeID\": 2,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 216.0731263606985\n        },\n        {\n            \"ID\": 75,\n            \"CreatedAt\": \"2024-03-21T14:32:37.692022+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.692022+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"dignissimos\",\n            \"TypeID\": 4,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 913.2773748982779\n        },\n        {\n            \"ID\": 76,\n            \"CreatedAt\": \"2024-03-21T14:32:37.692179+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.692179+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"ipsa\",\n            \"TypeID\": 4,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 503.7202333601352\n        },\n        {\n            \"ID\": 77,\n            \"CreatedAt\": \"2024-03-21T14:32:37.692522+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.692522+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"qui\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 75.78446548923162\n        },\n        {\n            \"ID\": 78,\n            \"CreatedAt\": \"2024-03-21T14:32:37.692675+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.692675+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"consequatur\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 609.0349463701837\n        },\n        {\n            \"ID\": 79,\n            \"CreatedAt\": \"2024-03-21T14:32:37.692826+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.692826+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"et\",\n            \"TypeID\": 2,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 486.2451769396295\n        },\n        {\n            \"ID\": 80,\n            \"CreatedAt\": \"2024-03-21T14:32:37.69298+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.69298+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"dolores\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 267.33216661983545\n        },\n        {\n            \"ID\": 81,\n            \"CreatedAt\": \"2024-03-21T14:32:37.693145+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.693145+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"provident\",\n            \"TypeID\": 4,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 7.741016873151102\n        },\n        {\n            \"ID\": 82,\n            \"CreatedAt\": \"2024-03-21T14:32:37.693301+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.693301+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"soluta\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 412.60775348032354\n        },\n        {\n            \"ID\": 83,\n            \"CreatedAt\": \"2024-03-21T14:32:37.69348+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.69348+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"illo\",\n            \"TypeID\": 4,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 189.24973195107742\n        },\n        {\n            \"ID\": 84,\n            \"CreatedAt\": \"2024-03-21T14:32:37.693643+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.693643+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"vero\",\n            \"TypeID\": 2,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 283.57318349548564\n        },\n        {\n            \"ID\": 85,\n            \"CreatedAt\": \"2024-03-21T14:32:37.693801+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.693801+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"odio\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 715.2673820829752\n        },\n        {\n            \"ID\": 86,\n            \"CreatedAt\": \"2024-03-21T14:32:37.693978+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.693978+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"omnis\",\n            \"TypeID\": 3,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 739.9437827921305\n        },\n        {\n            \"ID\": 87,\n            \"CreatedAt\": \"2024-03-21T14:32:37.694147+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.694147+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"vel\",\n            \"TypeID\": 2,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 197.75053630610847\n        },\n        {\n            \"ID\": 88,\n            \"CreatedAt\": \"2024-03-21T14:32:37.69431+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.69431+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"qui\",\n            \"TypeID\": 2,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 402.8629605913624\n        },\n        {\n            \"ID\": 89,\n            \"CreatedAt\": \"2024-03-21T14:32:37.694474+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.694474+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"nesciunt\",\n            \"TypeID\": 4,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 1.2796200261648287\n        },\n        {\n            \"ID\": 90,\n            \"CreatedAt\": \"2024-03-21T14:32:37.69462+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.69462+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"expedita\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 764.145910909356\n        },\n        {\n            \"ID\": 91,\n            \"CreatedAt\": \"2024-03-21T14:32:37.694749+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.694749+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"beatae\",\n            \"TypeID\": 3,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 34.21206940299128\n        },\n        {\n            \"ID\": 92,\n            \"CreatedAt\": \"2024-03-21T14:32:37.694895+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.694895+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"aut\",\n            \"TypeID\": 2,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 177.44897682834824\n        },\n        {\n            \"ID\": 93,\n            \"CreatedAt\": \"2024-03-21T14:32:37.695027+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.695027+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"velit\",\n            \"TypeID\": 3,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 18.13913689849036\n        },\n        {\n            \"ID\": 94,\n            \"CreatedAt\": \"2024-03-21T14:32:37.695168+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.695168+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"nesciunt\",\n            \"TypeID\": 4,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 752.4371977796015\n        },\n        {\n            \"ID\": 95,\n            \"CreatedAt\": \"2024-03-21T14:32:37.695301+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.695301+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"qui\",\n            \"TypeID\": 4,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 569.8877940500325\n        },\n        {\n            \"ID\": 96,\n            \"CreatedAt\": \"2024-03-21T14:32:37.695439+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.695439+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"ipsa\",\n            \"TypeID\": 3,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 838.9110881787384\n        },\n        {\n            \"ID\": 97,\n            \"CreatedAt\": \"2024-03-21T14:32:37.696387+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.696387+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"porro\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 198.40283898602652\n        },\n        {\n            \"ID\": 98,\n            \"CreatedAt\": \"2024-03-21T14:32:37.696526+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.696526+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"aut\",\n            \"TypeID\": 4,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 887.5828613017826\n        },\n        {\n            \"ID\": 99,\n            \"CreatedAt\": \"2024-03-21T14:32:37.69665+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.69665+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"dolorem\",\n            \"TypeID\": 3,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 474.6023508436087\n        },\n        {\n            \"ID\": 100,\n            \"CreatedAt\": \"2024-03-21T14:32:37.696794+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.696794+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"recusandae\",\n            \"TypeID\": 3,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 725.2426435311498\n        },\n        {\n            \"ID\": 101,\n            \"CreatedAt\": \"2024-03-21T14:32:37.696926+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.696926+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"et\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 606.9007429750727\n        },\n        {\n            \"ID\": 102,\n            \"CreatedAt\": \"2024-03-21T14:32:37.697057+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.697057+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"deleniti\",\n            \"TypeID\": 3,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 296.55572382795367\n        },\n        {\n            \"ID\": 103,\n            \"CreatedAt\": \"2024-03-21T14:32:37.697183+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.697183+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"qui\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 190.13705006677475\n        },\n        {\n            \"ID\": 107,\n            \"CreatedAt\": \"2024-03-21T16:39:09.562828+07:00\",\n            \"UpdatedAt\": \"2024-03-21T16:39:09.562828+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"kokocrunch106\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 5700\n        },\n        {\n            \"ID\": 108,\n            \"CreatedAt\": \"2024-03-21T16:39:32.30858+07:00\",\n            \"UpdatedAt\": \"2024-03-21T16:39:32.30858+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"kokocrunch106\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 5700\n        },\n        {\n            \"ID\": 106,\n            \"CreatedAt\": \"0001-01-01T07:07:12+07:07\",\n            \"UpdatedAt\": \"2024-03-21T16:44:47.316016+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"kokocrunch106\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 5700\n        },\n        {\n            \"ID\": 109,\n            \"CreatedAt\": \"2024-03-21T16:52:15.872514+07:00\",\n            \"UpdatedAt\": \"2024-03-21T16:52:15.872514+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"kokocrunch105\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 5700\n        },\n        {\n            \"ID\": 110,\n            \"CreatedAt\": \"2024-03-21T16:53:08.885136+07:00\",\n            \"UpdatedAt\": \"2024-03-21T16:53:08.885136+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"kokocrunch105\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 5700\n        },\n        {\n            \"ID\": 104,\n            \"CreatedAt\": \"0001-01-01T07:07:12+07:07\",\n            \"UpdatedAt\": \"2024-03-21T17:02:42.935559+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"anima\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 5700\n        },\n        {\n            \"ID\": 122,\n            \"CreatedAt\": \"2024-03-21T21:49:29.351168+07:00\",\n            \"UpdatedAt\": \"2024-03-21T21:49:29.351168+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"kokocrunch2\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 5700\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Get List Product By Type",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/product?typeId=1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"product"
+							],
+							"query": [
+								{
+									"key": "typeId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get List Product By Type",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/product?typeId=1",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"product"
+									],
+									"query": [
+										{
+											"key": "typeId",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 21 Mar 2024 15:02:55 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "8238"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Products\": [\n        {\n            \"ID\": 1,\n            \"CreatedAt\": \"2024-03-21T14:20:08.557398+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:20:08.557398+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"Product 1\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 10000\n        },\n        {\n            \"ID\": 7,\n            \"CreatedAt\": \"2024-03-21T14:32:37.674729+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.674729+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"veniam\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 274.92182415279404\n        },\n        {\n            \"ID\": 8,\n            \"CreatedAt\": \"2024-03-21T14:32:37.675116+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.675116+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"eos\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 799.7871631894782\n        },\n        {\n            \"ID\": 16,\n            \"CreatedAt\": \"2024-03-21T14:32:37.678042+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.678042+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"saepe\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 920.050055741631\n        },\n        {\n            \"ID\": 19,\n            \"CreatedAt\": \"2024-03-21T14:32:37.678923+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.678923+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"dolorem\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 854.1809431500328\n        },\n        {\n            \"ID\": 23,\n            \"CreatedAt\": \"2024-03-21T14:32:37.680034+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.680034+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"iusto\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 653.4733532811189\n        },\n        {\n            \"ID\": 25,\n            \"CreatedAt\": \"2024-03-21T14:32:37.680591+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.680591+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"sequi\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 189.89190281967498\n        },\n        {\n            \"ID\": 30,\n            \"CreatedAt\": \"2024-03-21T14:32:37.682299+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.682299+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"vel\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 390.6088061782902\n        },\n        {\n            \"ID\": 33,\n            \"CreatedAt\": \"2024-03-21T14:32:37.682918+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.682918+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"illum\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 695.0462988020153\n        },\n        {\n            \"ID\": 44,\n            \"CreatedAt\": \"2024-03-21T14:32:37.685353+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.685353+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"ex\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 576.5427562298266\n        },\n        {\n            \"ID\": 45,\n            \"CreatedAt\": \"2024-03-21T14:32:37.685567+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.685567+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"cumque\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 962.9646470696754\n        },\n        {\n            \"ID\": 60,\n            \"CreatedAt\": \"2024-03-21T14:32:37.688312+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.688312+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"id\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 471.7002365703116\n        },\n        {\n            \"ID\": 70,\n            \"CreatedAt\": \"2024-03-21T14:32:37.69125+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.69125+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"ut\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 501.6763511326593\n        },\n        {\n            \"ID\": 77,\n            \"CreatedAt\": \"2024-03-21T14:32:37.692522+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.692522+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"qui\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 75.78446548923162\n        },\n        {\n            \"ID\": 78,\n            \"CreatedAt\": \"2024-03-21T14:32:37.692675+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.692675+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"consequatur\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 609.0349463701837\n        },\n        {\n            \"ID\": 80,\n            \"CreatedAt\": \"2024-03-21T14:32:37.69298+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.69298+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"dolores\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 267.33216661983545\n        },\n        {\n            \"ID\": 82,\n            \"CreatedAt\": \"2024-03-21T14:32:37.693301+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.693301+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"soluta\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 412.60775348032354\n        },\n        {\n            \"ID\": 85,\n            \"CreatedAt\": \"2024-03-21T14:32:37.693801+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.693801+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"odio\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 715.2673820829752\n        },\n        {\n            \"ID\": 90,\n            \"CreatedAt\": \"2024-03-21T14:32:37.69462+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.69462+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"expedita\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 764.145910909356\n        },\n        {\n            \"ID\": 97,\n            \"CreatedAt\": \"2024-03-21T14:32:37.696387+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.696387+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"porro\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 198.40283898602652\n        },\n        {\n            \"ID\": 101,\n            \"CreatedAt\": \"2024-03-21T14:32:37.696926+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.696926+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"et\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 606.9007429750727\n        },\n        {\n            \"ID\": 103,\n            \"CreatedAt\": \"2024-03-21T14:32:37.697183+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.697183+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"qui\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 190.13705006677475\n        },\n        {\n            \"ID\": 107,\n            \"CreatedAt\": \"2024-03-21T16:39:09.562828+07:00\",\n            \"UpdatedAt\": \"2024-03-21T16:39:09.562828+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"kokocrunch106\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 5700\n        },\n        {\n            \"ID\": 108,\n            \"CreatedAt\": \"2024-03-21T16:39:32.30858+07:00\",\n            \"UpdatedAt\": \"2024-03-21T16:39:32.30858+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"kokocrunch106\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 5700\n        },\n        {\n            \"ID\": 106,\n            \"CreatedAt\": \"0001-01-01T07:07:12+07:07\",\n            \"UpdatedAt\": \"2024-03-21T16:44:47.316016+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"kokocrunch106\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 5700\n        },\n        {\n            \"ID\": 109,\n            \"CreatedAt\": \"2024-03-21T16:52:15.872514+07:00\",\n            \"UpdatedAt\": \"2024-03-21T16:52:15.872514+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"kokocrunch105\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 5700\n        },\n        {\n            \"ID\": 110,\n            \"CreatedAt\": \"2024-03-21T16:53:08.885136+07:00\",\n            \"UpdatedAt\": \"2024-03-21T16:53:08.885136+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"kokocrunch105\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 5700\n        },\n        {\n            \"ID\": 104,\n            \"CreatedAt\": \"0001-01-01T07:07:12+07:07\",\n            \"UpdatedAt\": \"2024-03-21T17:02:42.935559+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"anima\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 5700\n        },\n        {\n            \"ID\": 122,\n            \"CreatedAt\": \"2024-03-21T21:49:29.351168+07:00\",\n            \"UpdatedAt\": \"2024-03-21T21:49:29.351168+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"kokocrunch2\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 5700\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Get List Product By Name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/product?name=kokocrun",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"product"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "kokocrun"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get List Product By Name",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/product?name=kokocrun",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"product"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "kokocrun"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 21 Mar 2024 15:04:24 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1695"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Products\": [\n        {\n            \"ID\": 107,\n            \"CreatedAt\": \"2024-03-21T16:39:09.562828+07:00\",\n            \"UpdatedAt\": \"2024-03-21T16:39:09.562828+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"kokocrunch106\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 5700\n        },\n        {\n            \"ID\": 108,\n            \"CreatedAt\": \"2024-03-21T16:39:32.30858+07:00\",\n            \"UpdatedAt\": \"2024-03-21T16:39:32.30858+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"kokocrunch106\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 5700\n        },\n        {\n            \"ID\": 106,\n            \"CreatedAt\": \"0001-01-01T07:07:12+07:07\",\n            \"UpdatedAt\": \"2024-03-21T16:44:47.316016+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"kokocrunch106\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 5700\n        },\n        {\n            \"ID\": 109,\n            \"CreatedAt\": \"2024-03-21T16:52:15.872514+07:00\",\n            \"UpdatedAt\": \"2024-03-21T16:52:15.872514+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"kokocrunch105\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 5700\n        },\n        {\n            \"ID\": 110,\n            \"CreatedAt\": \"2024-03-21T16:53:08.885136+07:00\",\n            \"UpdatedAt\": \"2024-03-21T16:53:08.885136+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"kokocrunch105\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 5700\n        },\n        {\n            \"ID\": 122,\n            \"CreatedAt\": \"2024-03-21T21:49:29.351168+07:00\",\n            \"UpdatedAt\": \"2024-03-21T21:49:29.351168+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"kokocrunch2\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 5700\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Get List Product Sort",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/product?sort=type_id&dir=ASC",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"product"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "type_id"
+								},
+								{
+									"key": "dir",
+									"value": "ASC"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get List Product Sort",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/product?sort=type_id&dir=ASC",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"product"
+									],
+									"query": [
+										{
+											"key": "sort",
+											"value": "type_id"
+										},
+										{
+											"key": "dir",
+											"value": "ASC"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 21 Mar 2024 15:10:55 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "31380"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Products\": [\n        {\n            \"ID\": 30,\n            \"CreatedAt\": \"2024-03-21T14:32:37.682299+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.682299+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"vel\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 390.6088061782902\n        },\n        {\n            \"ID\": 80,\n            \"CreatedAt\": \"2024-03-21T14:32:37.69298+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.69298+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"dolores\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 267.33216661983545\n        },\n        {\n            \"ID\": 122,\n            \"CreatedAt\": \"2024-03-21T21:49:29.351168+07:00\",\n            \"UpdatedAt\": \"2024-03-21T21:49:29.351168+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"kokocrunch2\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 5700\n        },\n        {\n            \"ID\": 33,\n            \"CreatedAt\": \"2024-03-21T14:32:37.682918+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.682918+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"illum\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 695.0462988020153\n        },\n        {\n            \"ID\": 78,\n            \"CreatedAt\": \"2024-03-21T14:32:37.692675+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.692675+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"consequatur\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 609.0349463701837\n        },\n        {\n            \"ID\": 110,\n            \"CreatedAt\": \"2024-03-21T16:53:08.885136+07:00\",\n            \"UpdatedAt\": \"2024-03-21T16:53:08.885136+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"kokocrunch105\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 5700\n        },\n        {\n            \"ID\": 77,\n            \"CreatedAt\": \"2024-03-21T14:32:37.692522+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.692522+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"qui\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 75.78446548923162\n        },\n        {\n            \"ID\": 7,\n            \"CreatedAt\": \"2024-03-21T14:32:37.674729+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.674729+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"veniam\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 274.92182415279404\n        },\n        {\n            \"ID\": 70,\n            \"CreatedAt\": \"2024-03-21T14:32:37.69125+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.69125+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"ut\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 501.6763511326593\n        },\n        {\n            \"ID\": 109,\n            \"CreatedAt\": \"2024-03-21T16:52:15.872514+07:00\",\n            \"UpdatedAt\": \"2024-03-21T16:52:15.872514+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"kokocrunch105\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 5700\n        },\n        {\n            \"ID\": 106,\n            \"CreatedAt\": \"0001-01-01T07:07:12+07:07\",\n            \"UpdatedAt\": \"2024-03-21T16:44:47.316016+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"kokocrunch106\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 5700\n        },\n        {\n            \"ID\": 60,\n            \"CreatedAt\": \"2024-03-21T14:32:37.688312+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.688312+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"id\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 471.7002365703116\n        },\n        {\n            \"ID\": 108,\n            \"CreatedAt\": \"2024-03-21T16:39:32.30858+07:00\",\n            \"UpdatedAt\": \"2024-03-21T16:39:32.30858+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"kokocrunch106\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 5700\n        },\n        {\n            \"ID\": 45,\n            \"CreatedAt\": \"2024-03-21T14:32:37.685567+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.685567+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"cumque\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 962.9646470696754\n        },\n        {\n            \"ID\": 44,\n            \"CreatedAt\": \"2024-03-21T14:32:37.685353+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.685353+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"ex\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 576.5427562298266\n        },\n        {\n            \"ID\": 16,\n            \"CreatedAt\": \"2024-03-21T14:32:37.678042+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.678042+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"saepe\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 920.050055741631\n        },\n        {\n            \"ID\": 107,\n            \"CreatedAt\": \"2024-03-21T16:39:09.562828+07:00\",\n            \"UpdatedAt\": \"2024-03-21T16:39:09.562828+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"kokocrunch106\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 5700\n        },\n        {\n            \"ID\": 103,\n            \"CreatedAt\": \"2024-03-21T14:32:37.697183+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.697183+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"qui\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 190.13705006677475\n        },\n        {\n            \"ID\": 19,\n            \"CreatedAt\": \"2024-03-21T14:32:37.678923+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.678923+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"dolorem\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 854.1809431500328\n        },\n        {\n            \"ID\": 101,\n            \"CreatedAt\": \"2024-03-21T14:32:37.696926+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.696926+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"et\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 606.9007429750727\n        },\n        {\n            \"ID\": 97,\n            \"CreatedAt\": \"2024-03-21T14:32:37.696387+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.696387+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"porro\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 198.40283898602652\n        },\n        {\n            \"ID\": 90,\n            \"CreatedAt\": \"2024-03-21T14:32:37.69462+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.69462+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"expedita\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 764.145910909356\n        },\n        {\n            \"ID\": 23,\n            \"CreatedAt\": \"2024-03-21T14:32:37.680034+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.680034+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"iusto\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 653.4733532811189\n        },\n        {\n            \"ID\": 85,\n            \"CreatedAt\": \"2024-03-21T14:32:37.693801+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.693801+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"odio\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 715.2673820829752\n        },\n        {\n            \"ID\": 25,\n            \"CreatedAt\": \"2024-03-21T14:32:37.680591+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.680591+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"sequi\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 189.89190281967498\n        },\n        {\n            \"ID\": 82,\n            \"CreatedAt\": \"2024-03-21T14:32:37.693301+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.693301+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"soluta\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 412.60775348032354\n        },\n        {\n            \"ID\": 1,\n            \"CreatedAt\": \"2024-03-21T14:20:08.557398+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:20:08.557398+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"Product 1\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 10000\n        },\n        {\n            \"ID\": 8,\n            \"CreatedAt\": \"2024-03-21T14:32:37.675116+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.675116+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"eos\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 799.7871631894782\n        },\n        {\n            \"ID\": 104,\n            \"CreatedAt\": \"0001-01-01T07:07:12+07:07\",\n            \"UpdatedAt\": \"2024-03-21T17:02:42.935559+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"anima\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 5700\n        },\n        {\n            \"ID\": 27,\n            \"CreatedAt\": \"2024-03-21T14:32:37.68123+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.68123+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"vero\",\n            \"TypeID\": 2,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 611.538001898007\n        },\n        {\n            \"ID\": 2,\n            \"CreatedAt\": \"2024-03-21T14:20:08.561046+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:20:08.561046+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"Product 2\",\n            \"TypeID\": 2,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 20000\n        },\n        {\n            \"ID\": 5,\n            \"CreatedAt\": \"2024-03-21T14:32:37.671715+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.671715+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"voluptas\",\n            \"TypeID\": 2,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 635.4576246834101\n        },\n        {\n            \"ID\": 9,\n            \"CreatedAt\": \"2024-03-21T14:32:37.675643+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.675643+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"ipsum\",\n            \"TypeID\": 2,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 689.8834025886645\n        },\n        {\n            \"ID\": 10,\n            \"CreatedAt\": \"2024-03-21T14:32:37.676041+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.676041+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"iste\",\n            \"TypeID\": 2,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 739.3284663139033\n        },\n        {\n            \"ID\": 11,\n            \"CreatedAt\": \"2024-03-21T14:32:37.676449+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.676449+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"ut\",\n            \"TypeID\": 2,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 69.42249340013615\n        },\n        {\n            \"ID\": 12,\n            \"CreatedAt\": \"2024-03-21T14:32:37.676822+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.676822+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"sed\",\n            \"TypeID\": 2,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 263.55085769015125\n        },\n        {\n            \"ID\": 28,\n            \"CreatedAt\": \"2024-03-21T14:32:37.681505+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.681505+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"illo\",\n            \"TypeID\": 2,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 951.3375377095306\n        },\n        {\n            \"ID\": 29,\n            \"CreatedAt\": \"2024-03-21T14:32:37.682104+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.682104+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"minima\",\n            \"TypeID\": 2,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 540.9956908019335\n        },\n        {\n            \"ID\": 32,\n            \"CreatedAt\": \"2024-03-21T14:32:37.682718+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.682718+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"aliquid\",\n            \"TypeID\": 2,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 707.8880211899918\n        },\n        {\n            \"ID\": 35,\n            \"CreatedAt\": \"2024-03-21T14:32:37.683298+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.683298+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"maiores\",\n            \"TypeID\": 2,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 925.855005857994\n        },\n        {\n            \"ID\": 37,\n            \"CreatedAt\": \"2024-03-21T14:32:37.683801+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.683801+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"saepe\",\n            \"TypeID\": 2,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 811.1903028795016\n        },\n        {\n            \"ID\": 39,\n            \"CreatedAt\": \"2024-03-21T14:32:37.684341+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.684341+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"odio\",\n            \"TypeID\": 2,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 676.5056774615146\n        },\n        {\n            \"ID\": 40,\n            \"CreatedAt\": \"2024-03-21T14:32:37.684534+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.684534+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"neque\",\n            \"TypeID\": 2,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 17.147870613776927\n        },\n        {\n            \"ID\": 42,\n            \"CreatedAt\": \"2024-03-21T14:32:37.684931+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.684931+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"vitae\",\n            \"TypeID\": 2,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 253.05291672197467\n        },\n        {\n            \"ID\": 48,\n            \"CreatedAt\": \"2024-03-21T14:32:37.686123+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.686123+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"ullam\",\n            \"TypeID\": 2,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 759.4554657873161\n        },\n        {\n            \"ID\": 50,\n            \"CreatedAt\": \"2024-03-21T14:32:37.68651+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.68651+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"quisquam\",\n            \"TypeID\": 2,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 972.3026139491935\n        },\n        {\n            \"ID\": 51,\n            \"CreatedAt\": \"2024-03-21T14:32:37.686666+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.686666+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"maxime\",\n            \"TypeID\": 2,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 218.59191823749572\n        },\n        {\n            \"ID\": 56,\n            \"CreatedAt\": \"2024-03-21T14:32:37.687519+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.687519+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"fugit\",\n            \"TypeID\": 2,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 557.484423294003\n        },\n        {\n            \"ID\": 59,\n            \"CreatedAt\": \"2024-03-21T14:32:37.688151+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.688151+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"cum\",\n            \"TypeID\": 2,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 293.757574498212\n        },\n        {\n            \"ID\": 62,\n            \"CreatedAt\": \"2024-03-21T14:32:37.689321+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.689321+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"ratione\",\n            \"TypeID\": 2,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 594.7936684579461\n        },\n        {\n            \"ID\": 63,\n            \"CreatedAt\": \"2024-03-21T14:32:37.68965+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.68965+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"optio\",\n            \"TypeID\": 2,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 36.55266883292705\n        },\n        {\n            \"ID\": 66,\n            \"CreatedAt\": \"2024-03-21T14:32:37.690552+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.690552+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"et\",\n            \"TypeID\": 2,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 962.0338930417864\n        },\n        {\n            \"ID\": 74,\n            \"CreatedAt\": \"2024-03-21T14:32:37.691868+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.691868+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"aut\",\n            \"TypeID\": 2,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 216.0731263606985\n        },\n        {\n            \"ID\": 79,\n            \"CreatedAt\": \"2024-03-21T14:32:37.692826+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.692826+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"et\",\n            \"TypeID\": 2,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 486.2451769396295\n        },\n        {\n            \"ID\": 84,\n            \"CreatedAt\": \"2024-03-21T14:32:37.693643+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.693643+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"vero\",\n            \"TypeID\": 2,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 283.57318349548564\n        },\n        {\n            \"ID\": 87,\n            \"CreatedAt\": \"2024-03-21T14:32:37.694147+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.694147+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"vel\",\n            \"TypeID\": 2,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 197.75053630610847\n        },\n        {\n            \"ID\": 88,\n            \"CreatedAt\": \"2024-03-21T14:32:37.69431+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.69431+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"qui\",\n            \"TypeID\": 2,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 402.8629605913624\n        },\n        {\n            \"ID\": 92,\n            \"CreatedAt\": \"2024-03-21T14:32:37.694895+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.694895+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"aut\",\n            \"TypeID\": 2,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 177.44897682834824\n        },\n        {\n            \"ID\": 86,\n            \"CreatedAt\": \"2024-03-21T14:32:37.693978+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.693978+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"omnis\",\n            \"TypeID\": 3,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 739.9437827921305\n        },\n        {\n            \"ID\": 18,\n            \"CreatedAt\": \"2024-03-21T14:32:37.678659+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.678659+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"ipsum\",\n            \"TypeID\": 3,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 669.2512053206708\n        },\n        {\n            \"ID\": 72,\n            \"CreatedAt\": \"2024-03-21T14:32:37.691557+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.691557+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"hic\",\n            \"TypeID\": 3,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 46.65545323138265\n        },\n        {\n            \"ID\": 73,\n            \"CreatedAt\": \"2024-03-21T14:32:37.691707+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.691707+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"est\",\n            \"TypeID\": 3,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 887.4427849305468\n        },\n        {\n            \"ID\": 31,\n            \"CreatedAt\": \"2024-03-21T14:32:37.682491+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.682491+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"quas\",\n            \"TypeID\": 3,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 240.88123410477192\n        },\n        {\n            \"ID\": 91,\n            \"CreatedAt\": \"2024-03-21T14:32:37.694749+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.694749+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"beatae\",\n            \"TypeID\": 3,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 34.21206940299128\n        },\n        {\n            \"ID\": 3,\n            \"CreatedAt\": \"2024-03-21T14:20:08.561549+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:20:08.561549+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"Product 3\",\n            \"TypeID\": 3,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 30000\n        },\n        {\n            \"ID\": 93,\n            \"CreatedAt\": \"2024-03-21T14:32:37.695027+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.695027+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"velit\",\n            \"TypeID\": 3,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 18.13913689849036\n        },\n        {\n            \"ID\": 41,\n            \"CreatedAt\": \"2024-03-21T14:32:37.684727+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.684727+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"aut\",\n            \"TypeID\": 3,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 888.8636660340933\n        },\n        {\n            \"ID\": 26,\n            \"CreatedAt\": \"2024-03-21T14:32:37.680991+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.680991+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"incidunt\",\n            \"TypeID\": 3,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 36.33638564247274\n        },\n        {\n            \"ID\": 96,\n            \"CreatedAt\": \"2024-03-21T14:32:37.695439+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.695439+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"ipsa\",\n            \"TypeID\": 3,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 838.9110881787384\n        },\n        {\n            \"ID\": 43,\n            \"CreatedAt\": \"2024-03-21T14:32:37.685149+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.685149+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"enim\",\n            \"TypeID\": 3,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 553.1833812104577\n        },\n        {\n            \"ID\": 102,\n            \"CreatedAt\": \"2024-03-21T14:32:37.697057+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.697057+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"deleniti\",\n            \"TypeID\": 3,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 296.55572382795367\n        },\n        {\n            \"ID\": 47,\n            \"CreatedAt\": \"2024-03-21T14:32:37.685932+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.685932+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"sed\",\n            \"TypeID\": 3,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 208.20091068868362\n        },\n        {\n            \"ID\": 21,\n            \"CreatedAt\": \"2024-03-21T14:32:37.679462+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.679462+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"aspernatur\",\n            \"TypeID\": 3,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 562.2187556161222\n        },\n        {\n            \"ID\": 49,\n            \"CreatedAt\": \"2024-03-21T14:32:37.686322+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.686322+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"doloribus\",\n            \"TypeID\": 3,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 138.8241105975094\n        },\n        {\n            \"ID\": 17,\n            \"CreatedAt\": \"2024-03-21T14:32:37.678333+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.678333+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"est\",\n            \"TypeID\": 3,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 161.74010643458195\n        },\n        {\n            \"ID\": 99,\n            \"CreatedAt\": \"2024-03-21T14:32:37.69665+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.69665+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"dolorem\",\n            \"TypeID\": 3,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 474.6023508436087\n        },\n        {\n            \"ID\": 52,\n            \"CreatedAt\": \"2024-03-21T14:32:37.686816+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.686816+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"molestiae\",\n            \"TypeID\": 3,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 230.2160008944015\n        },\n        {\n            \"ID\": 53,\n            \"CreatedAt\": \"2024-03-21T14:32:37.686981+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.686981+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"soluta\",\n            \"TypeID\": 3,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 388.2556704184638\n        },\n        {\n            \"ID\": 24,\n            \"CreatedAt\": \"2024-03-21T14:32:37.680301+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.680301+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"et\",\n            \"TypeID\": 3,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 7.258889853138576\n        },\n        {\n            \"ID\": 55,\n            \"CreatedAt\": \"2024-03-21T14:32:37.687342+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.687342+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"omnis\",\n            \"TypeID\": 3,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 956.1522509689407\n        },\n        {\n            \"ID\": 100,\n            \"CreatedAt\": \"2024-03-21T14:32:37.696794+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.696794+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"recusandae\",\n            \"TypeID\": 3,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 725.2426435311498\n        },\n        {\n            \"ID\": 57,\n            \"CreatedAt\": \"2024-03-21T14:32:37.687735+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.687735+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"voluptas\",\n            \"TypeID\": 3,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 355.264164534518\n        },\n        {\n            \"ID\": 20,\n            \"CreatedAt\": \"2024-03-21T14:32:37.679188+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.679188+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"et\",\n            \"TypeID\": 3,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 348.6428219761627\n        },\n        {\n            \"ID\": 98,\n            \"CreatedAt\": \"2024-03-21T14:32:37.696526+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.696526+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"aut\",\n            \"TypeID\": 4,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 887.5828613017826\n        },\n        {\n            \"ID\": 54,\n            \"CreatedAt\": \"2024-03-21T14:32:37.687159+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.687159+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"sunt\",\n            \"TypeID\": 4,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 850.1137384122956\n        },\n        {\n            \"ID\": 58,\n            \"CreatedAt\": \"2024-03-21T14:32:37.687912+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.687912+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"ut\",\n            \"TypeID\": 4,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 676.9788186709573\n        },\n        {\n            \"ID\": 61,\n            \"CreatedAt\": \"2024-03-21T14:32:37.688869+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.688869+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"porro\",\n            \"TypeID\": 4,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 178.93464626575022\n        },\n        {\n            \"ID\": 64,\n            \"CreatedAt\": \"2024-03-21T14:32:37.690086+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.690086+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"est\",\n            \"TypeID\": 4,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 264.51735323577554\n        },\n        {\n            \"ID\": 65,\n            \"CreatedAt\": \"2024-03-21T14:32:37.690348+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.690348+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"qui\",\n            \"TypeID\": 4,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 873.768899183654\n        },\n        {\n            \"ID\": 67,\n            \"CreatedAt\": \"2024-03-21T14:32:37.690743+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.690743+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"enim\",\n            \"TypeID\": 4,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 575.3712013389487\n        },\n        {\n            \"ID\": 68,\n            \"CreatedAt\": \"2024-03-21T14:32:37.690918+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.690918+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"dolorem\",\n            \"TypeID\": 4,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 58.849881529161124\n        },\n        {\n            \"ID\": 69,\n            \"CreatedAt\": \"2024-03-21T14:32:37.691081+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.691081+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"voluptas\",\n            \"TypeID\": 4,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 634.8631967917308\n        },\n        {\n            \"ID\": 38,\n            \"CreatedAt\": \"2024-03-21T14:32:37.684052+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.684052+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"deleniti\",\n            \"TypeID\": 4,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 820.0800898366978\n        },\n        {\n            \"ID\": 71,\n            \"CreatedAt\": \"2024-03-21T14:32:37.691408+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.691408+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"similique\",\n            \"TypeID\": 4,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 716.5890012410963\n        },\n        {\n            \"ID\": 15,\n            \"CreatedAt\": \"2024-03-21T14:32:37.677759+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.677759+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"accusamus\",\n            \"TypeID\": 4,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 114.85895768054246\n        },\n        {\n            \"ID\": 75,\n            \"CreatedAt\": \"2024-03-21T14:32:37.692022+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.692022+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"dignissimos\",\n            \"TypeID\": 4,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 913.2773748982779\n        },\n        {\n            \"ID\": 76,\n            \"CreatedAt\": \"2024-03-21T14:32:37.692179+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.692179+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"ipsa\",\n            \"TypeID\": 4,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 503.7202333601352\n        },\n        {\n            \"ID\": 36,\n            \"CreatedAt\": \"2024-03-21T14:32:37.683502+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.683502+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"qui\",\n            \"TypeID\": 4,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 439.8621361208832\n        },\n        {\n            \"ID\": 34,\n            \"CreatedAt\": \"2024-03-21T14:32:37.6831+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.6831+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"id\",\n            \"TypeID\": 4,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 720.033198008239\n        },\n        {\n            \"ID\": 14,\n            \"CreatedAt\": \"2024-03-21T14:32:37.677467+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.677467+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"laborum\",\n            \"TypeID\": 4,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 471.0054427123103\n        },\n        {\n            \"ID\": 81,\n            \"CreatedAt\": \"2024-03-21T14:32:37.693145+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.693145+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"provident\",\n            \"TypeID\": 4,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 7.741016873151102\n        },\n        {\n            \"ID\": 83,\n            \"CreatedAt\": \"2024-03-21T14:32:37.69348+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.69348+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"illo\",\n            \"TypeID\": 4,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 189.24973195107742\n        },\n        {\n            \"ID\": 13,\n            \"CreatedAt\": \"2024-03-21T14:32:37.677138+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.677138+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"et\",\n            \"TypeID\": 4,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 146.38588813360457\n        },\n        {\n            \"ID\": 6,\n            \"CreatedAt\": \"2024-03-21T14:32:37.6743+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.6743+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"voluptatem\",\n            \"TypeID\": 4,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 28.85639642002906\n        },\n        {\n            \"ID\": 4,\n            \"CreatedAt\": \"2024-03-21T14:20:08.562163+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:20:08.562163+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"Product 4\",\n            \"TypeID\": 4,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 40000\n        },\n        {\n            \"ID\": 89,\n            \"CreatedAt\": \"2024-03-21T14:32:37.694474+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.694474+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"nesciunt\",\n            \"TypeID\": 4,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 1.2796200261648287\n        },\n        {\n            \"ID\": 22,\n            \"CreatedAt\": \"2024-03-21T14:32:37.679757+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.679757+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"est\",\n            \"TypeID\": 4,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 914.2758853355881\n        },\n        {\n            \"ID\": 94,\n            \"CreatedAt\": \"2024-03-21T14:32:37.695168+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.695168+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"nesciunt\",\n            \"TypeID\": 4,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 752.4371977796015\n        },\n        {\n            \"ID\": 95,\n            \"CreatedAt\": \"2024-03-21T14:32:37.695301+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.695301+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"qui\",\n            \"TypeID\": 4,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 569.8877940500325\n        },\n        {\n            \"ID\": 46,\n            \"CreatedAt\": \"2024-03-21T14:32:37.685771+07:00\",\n            \"UpdatedAt\": \"2024-03-21T14:32:37.685771+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"odit\",\n            \"TypeID\": 4,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 404.1537606676467\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Get List Product Combination",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/product?typeId=1&name=kokocrun&sort=name&dir=DESC",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"product"
+							],
+							"query": [
+								{
+									"key": "typeId",
+									"value": "1"
+								},
+								{
+									"key": "name",
+									"value": "kokocrun"
+								},
+								{
+									"key": "sort",
+									"value": "name"
+								},
+								{
+									"key": "dir",
+									"value": "DESC"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get List Product Combination",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/product?typeId=1&name=kokocrun&sort=name&dir=DESC",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"product"
+									],
+									"query": [
+										{
+											"key": "typeId",
+											"value": "1"
+										},
+										{
+											"key": "name",
+											"value": "kokocrun"
+										},
+										{
+											"key": "sort",
+											"value": "name"
+										},
+										{
+											"key": "dir",
+											"value": "DESC"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 21 Mar 2024 15:14:05 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1695"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Products\": [\n        {\n            \"ID\": 122,\n            \"CreatedAt\": \"2024-03-21T21:49:29.351168+07:00\",\n            \"UpdatedAt\": \"2024-03-21T21:49:29.351168+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"kokocrunch2\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 5700\n        },\n        {\n            \"ID\": 107,\n            \"CreatedAt\": \"2024-03-21T16:39:09.562828+07:00\",\n            \"UpdatedAt\": \"2024-03-21T16:39:09.562828+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"kokocrunch106\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 5700\n        },\n        {\n            \"ID\": 108,\n            \"CreatedAt\": \"2024-03-21T16:39:32.30858+07:00\",\n            \"UpdatedAt\": \"2024-03-21T16:39:32.30858+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"kokocrunch106\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 5700\n        },\n        {\n            \"ID\": 106,\n            \"CreatedAt\": \"0001-01-01T07:07:12+07:07\",\n            \"UpdatedAt\": \"2024-03-21T16:44:47.316016+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"kokocrunch106\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 5700\n        },\n        {\n            \"ID\": 109,\n            \"CreatedAt\": \"2024-03-21T16:52:15.872514+07:00\",\n            \"UpdatedAt\": \"2024-03-21T16:52:15.872514+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"kokocrunch105\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 5700\n        },\n        {\n            \"ID\": 110,\n            \"CreatedAt\": \"2024-03-21T16:53:08.885136+07:00\",\n            \"UpdatedAt\": \"2024-03-21T16:53:08.885136+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"kokocrunch105\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 0,\n                \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n                \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n                \"DeletedAt\": null,\n                \"Name\": \"\"\n            },\n            \"Price\": 5700\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Product By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/product/104",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"product",
+								"104"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Product By ID",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/product/104",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"product",
+										"104"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 21 Mar 2024 15:12:49 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "312"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Products\": [\n        {\n            \"ID\": 104,\n            \"CreatedAt\": \"0001-01-01T07:07:12+07:07\",\n            \"UpdatedAt\": \"2024-03-21T17:02:42.935559+07:00\",\n            \"DeletedAt\": null,\n            \"Name\": \"anima\",\n            \"TypeID\": 1,\n            \"Type\": {\n                \"ID\": 1,\n                \"CreatedAt\": \"2024-03-21T14:06:05.799148+07:00\",\n                \"UpdatedAt\": \"2024-03-21T14:06:05.799148+07:00\",\n                \"DeletedAt\": null,\n                \"Name\": \"Sayuran\"\n            },\n            \"Price\": 5700\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Create Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJuYW1lIjoiYWRtaW4iLCJlbWFpbCI6ImFkbWluQGxvY2FsaG9zdCIsInVzZXJJZCI6Mn0sImV4cCI6MTcxMTAzMjY3NH0.UpWXCqLwgpT_DB13K1g3ncAXk1T0WLObbzTgEiB-ttg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"kokocrunch2\",\n    \"typeId\": 1,\n    \"price\": 5700\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/product",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"product"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Product Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"kokocrunch\",\n    \"typeId\": 1,\n    \"price\": 5700\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/product",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"product"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 21 Mar 2024 09:37:04 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "41"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": false,\n    \"code\": 200,\n    \"message\": \"OK\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 104,\n    \"name\": \"anima\",\n    \"typeId\": 1,\n    \"price\": 5700\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/product",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"product"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "UpdateProduct Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"kokocrunch\",\n    \"typeId\": 1,\n    \"price\": 5700\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/product",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"product"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 21 Mar 2024 09:37:04 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "41"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": false,\n    \"code\": 200,\n    \"message\": \"OK\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJuYW1lIjoiYWRtaW4iLCJlbWFpbCI6ImFkbWluQGxvY2FsaG9zdCIsInVzZXJJZCI6Mn0sImV4cCI6MTcxMTAzMjY3NH0.UpWXCqLwgpT_DB13K1g3ncAXk1T0WLObbzTgEiB-ttg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 104,\n    \"name\": \"kokocrunch105\",\n    \"typeId\": 1,\n    \"price\": 5700\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/product/111",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"product",
+								"111"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get List Product Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"kokocrunch\",\n    \"typeId\": 1,\n    \"price\": 5700\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/product",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"product"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 21 Mar 2024 09:37:04 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "41"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": false,\n    \"code\": 200,\n    \"message\": \"OK\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Product Type",
+			"item": [
+				{
+					"name": "Create Product Type",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJuYW1lIjoiYWRtaW4iLCJlbWFpbCI6ImFkbWluQGxvY2FsaG9zdCIsInVzZXJJZCI6Mn0sImV4cCI6MTcxMTAyODEwNn0.ckg07I53fTmik7CJHhB1IPqY8AZAFEgWC25ASCZNiOs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"makanan kaleng\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/type",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"type"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success Create Product Type",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"makanan kaleng\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/type",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"type"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 21 Mar 2024 14:00:52 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "41"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": false,\n    \"code\": 200,\n    \"message\": \"OK\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Product Type",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJuYW1lIjoiYWRtaW4iLCJlbWFpbCI6ImFkbWluQGxvY2FsaG9zdCIsInVzZXJJZCI6Mn0sImV4cCI6MTcxMTAyODEwNn0.ckg07I53fTmik7CJHhB1IPqY8AZAFEgWC25ASCZNiOs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":5,\n    \"name\": \"makanan tabung\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/type",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"type"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success Update Product Type",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"makanan kaleng\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/type",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"type"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 21 Mar 2024 14:00:52 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "41"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": false,\n    \"code\": 200,\n    \"message\": \"OK\"\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJuYW1lIjoiZXhhbXBsZTEiLCJlbWFpbCI6InRlc3RAZXhhbXBsZTEuY29tIiwidXNlcklkIjozfSwiZXhwIjoxNzA0MzQwMDA4fQ.Bm37-ezlFZcoa5pbvONsg_2LIAa1rUk6oSKckilGeUs",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "localhost:3000/api"
+		}
+	]
+}

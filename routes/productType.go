@@ -9,5 +9,6 @@ import (
 func ProductType(router fiber.Router, service middleware.Services) {
 	productTypeController := controllers.NewProductTypeController(service)
 
+	router.Use(middleware.AuthInterceptor)
 	router.Post("/", productTypeController.CreateOrUpdateType)
 }
