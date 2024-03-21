@@ -7,18 +7,20 @@ import (
 )
 
 type Services struct {
-	DB             *gorm.DB
-	AuthService    services.AuthenticationService
-	UserService    services.UserService
-	ProductService services.ProductService
+	DB                 *gorm.DB
+	AuthService        services.AuthenticationService
+	UserService        services.UserService
+	ProductService     services.ProductService
+	ProductTypeService services.ProductTypeService
 }
 
 func InitServices() Services {
 	db := database.GetDBConnection()
 	return Services{
-		DB:             db,
-		AuthService:    services.NewAuthService(db),
-		UserService:    services.NewUserService(db),
-		ProductService: services.NewProductService(db),
+		DB:                 db,
+		AuthService:        services.NewAuthService(db),
+		UserService:        services.NewUserService(db),
+		ProductService:     services.NewProductService(db),
+		ProductTypeService: services.NewProductTypeService(db),
 	}
 }

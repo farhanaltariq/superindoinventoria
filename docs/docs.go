@@ -222,7 +222,7 @@ const docTemplate = `{
                 "tags": [
                     "Product"
                 ],
-                "summary": "Delete Product",
+                "summary": "DeleteProduct Product",
                 "parameters": [
                     {
                         "type": "integer",
@@ -237,6 +237,51 @@ const docTemplate = `{
                         "description": "OK",
                         "schema": {
                             "$ref": "#/definitions/common.ResponseMessage"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/common.ResponseMessage"
+                        }
+                    }
+                }
+            }
+        },
+        "/type": {
+            "post": {
+                "security": [
+                    {
+                        "Authorization": []
+                    }
+                ],
+                "description": "Create Or Update Product Type Data",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Product Type"
+                ],
+                "summary": "Create Or Update Product Type",
+                "parameters": [
+                    {
+                        "description": "Product Type data",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.ProductTypeRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.ProductResponseExample"
                         }
                     },
                     "400": {
@@ -363,6 +408,17 @@ const docTemplate = `{
                     "items": {
                         "$ref": "#/definitions/models.ProductData"
                     }
+                }
+            }
+        },
+        "models.ProductTypeRequest": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
                 }
             }
         },

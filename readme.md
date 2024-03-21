@@ -25,6 +25,14 @@ API ini digunakan untuk menambahkan, mengambil, dan mengelola data produk di Sup
 
     - Menambahkan data produk baru atau memperbarui data produk.
     - Jika ID produk sudah ada, maka akan memperbarui data produk.
+    - Contoh body request:
+        ```json
+        {
+            "name": "kokocrunch2",
+            "typeId": 1,
+            "price": 5700
+        }
+        ```
 
 2. **[GET] /products**
 
@@ -40,10 +48,12 @@ API ini digunakan untuk menambahkan, mengambil, dan mengelola data produk di Sup
 
 5. **[GET] /products?search={keyword}**
 
-    - Mencari produk berdasarkan nama atau ID.
+    - Mencari produk berdasarkan nama.
 
 6. **[GET] /products?sort={field}**
     - Mengurutkan daftar produk berdasarkan tanggal, harga, atau nama.
+
+Untuk dokumentasi lebih rinci, dapat diakses melalui endpoint `/api/swagger` atau melihat koleksi postman yang terdapat di dalam folder `docs`.
 
 ## Implementasi
 
@@ -63,3 +73,5 @@ Kredensial default untuk login admin adalah:
     "password": "password"
 }
 ```
+
+Token dapat diakses melalui endpoint `[POST] /api/auth/login`.

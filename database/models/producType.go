@@ -7,6 +7,11 @@ type ProductType struct {
 	Name string
 }
 
+type ProductTypeRequest struct {
+	ID   int    `json:"id"`
+	Name string `json:"name"`
+}
+
 type ProductTypeResponse struct {
 	Name string
 }

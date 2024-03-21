@@ -13,7 +13,6 @@ func Product(router fiber.Router, service middleware.Services) {
 	router.Get("/:id", productController.GetProductById)
 
 	router.Use(middleware.AuthInterceptor)
-	router.Post("/", productController.CreateOrUpdataProduct)
+	router.Post("/", productController.CreateOrUpdateProduct)
 	router.Delete("/:id", productController.DeleteProduct)
-
 }

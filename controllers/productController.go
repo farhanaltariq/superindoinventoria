@@ -14,7 +14,7 @@ import (
 )
 
 type ProductController interface {
-	CreateOrUpdataProduct(c *fiber.Ctx) error
+	CreateOrUpdateProduct(c *fiber.Ctx) error
 	GetListProduct(c *fiber.Ctx) error
 	DeleteProduct(c *fiber.Ctx) error
 	GetProductById(c *fiber.Ctx) error
@@ -36,7 +36,7 @@ func NewProductController(service middleware.Services) ProductController {
 // @Success 200 {object} models.ProductResponseExample
 // @Failure 400 {object} common.ResponseMessage
 // @Router /product [post]
-func (s *controller) CreateOrUpdataProduct(c *fiber.Ctx) error {
+func (s *controller) CreateOrUpdateProduct(c *fiber.Ctx) error {
 	product := models.ProductRequest{}
 	if err := json.Unmarshal(c.Body(), &product); err != nil {
 		return status.Errorf(c, codes.InternalServerError, err.Error())

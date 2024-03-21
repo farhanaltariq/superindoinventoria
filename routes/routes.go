@@ -15,4 +15,5 @@ func Init(app *fiber.App) {
 	Authentications(api.Group("/auth"), services)
 
 	Product(api.Group("/product"), services)
+	ProductType(api.Group("/type"), services)
 }

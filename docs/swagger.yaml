@@ -75,6 +75,13 @@ definitions:
           $ref: '#/definitions/models.ProductData'
         type: array
     type: object
+  models.ProductTypeRequest:
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+    type: object
   models.ProductTypeResponse:
     properties:
       name:
@@ -226,7 +233,7 @@ paths:
             $ref: '#/definitions/common.ResponseMessage'
       security:
       - Authorization: []
-      summary: Delete Product
+      summary: DeleteProduct Product
       tags:
       - Product
     get:
@@ -251,6 +258,34 @@ paths:
       summary: Get Product Details
       tags:
       - Product
+  /type:
+    post:
+      consumes:
+      - application/json
+      description: Create Or Update Product Type Data
+      parameters:
+      - description: Product Type data
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/models.ProductTypeRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.ProductResponseExample'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.ResponseMessage'
+      security:
+      - Authorization: []
+      summary: Create Or Update Product Type
+      tags:
+      - Product Type
 schemes:
 - http
 - https
