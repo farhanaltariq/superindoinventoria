@@ -9,7 +9,7 @@ import (
 
 type ProductService interface {
 	CreateOrUpdate(models.Product) error
-	GetListProduct(c *fiber.Ctx) ([]models.Product, error)
+	GetListProduct(c *fiber.Ctx, productTypeId int, searchKeyword, sortField string) ([]models.Product, error)
 	DeleteProduct(int) error
 	GetProductById(uint) (models.ProductResponse, error)
 }
@@ -33,9 +33,23 @@ func (server *productService) CreateOrUpdate(product models.Product) error {
 	return nil
 }
 
-func (server *productService) GetListProduct(c *fiber.Ctx) ([]models.Product, error) {
+func (server *productService) GetListProduct(c *fiber.Ctx, productTypeId int, searchKeyword, sortField string) ([]models.Product, error) {
 	var products []models.Product
-	err := server.db.Debug().Find(&products).Error
+	db := server.db
+
+	// Menerapkan filter berdasarkan query parameter yang diberikan
+	if productTypeId != 0 {
+		db = db.Where("type_id = ?", productTypeId)
+	}
+	if searchKeyword != "" {
+		db = db.Where("name ILIKE ?", "%"+searchKeyword+"%")
+	}
+	if sortField != "" {
+		db = db.Order(sortField)
+	}
+
+	// Melakukan query ke database
+	err := db.Debug().Find(&products).Error
 	if err != nil {
 		logrus.Errorln(err)
 		return products, err

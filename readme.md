@@ -42,16 +42,20 @@ API ini digunakan untuk menambahkan, mengambil, dan mengelola data produk di Sup
 
     - Mendapatkan detail produk berdasarkan ID.
 
-4. **[GET] /products?type={type}**
+4. **[GET] /products?type_id={typeId}**
 
-    - Mendapatkan daftar produk berdasarkan tipe (Sayuran, Protein, Buah, atau Snack).
+    - Mendapatkan daftar produk berdasarkan tipeId.
 
-5. **[GET] /products?search={keyword}**
+5. **[GET] /products?name={keyword}**
 
     - Mencari produk berdasarkan nama.
 
-6. **[GET] /products?sort={field}**
+6. **[GET] /products?sort={field}&dir={direction}**
+
     - Mengurutkan daftar produk berdasarkan tanggal, harga, atau nama.
+
+7. **[GET] /product?typeId={typeId}&name={name}&sort={column}&dir={direction}**
+    - Menggabungkan pencarian, filter, dan sorting.
 
 Untuk dokumentasi lebih rinci, dapat diakses melalui endpoint `/api/swagger` atau melihat koleksi postman yang terdapat di dalam folder `docs`.
 

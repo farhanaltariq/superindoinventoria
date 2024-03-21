@@ -3,6 +3,7 @@ package controllers
 import (
 	"encoding/json"
 	"strconv"
+	"strings"
 	"time"
 
 	"github.com/farhanaltariq/fiberplate/common/codes"
@@ -55,6 +56,9 @@ func (s *controller) CreateOrUpdateProduct(c *fiber.Ctx) error {
 	if err != nil {
 		return status.Errorf(c, codes.InternalServerError, err.Error())
 	}
+	// delete redis
+	redisKey := "product:" + strconv.Itoa(product.ID)
+	s.Rdb.Del(c.Context(), redisKey)
 	return status.Successf(c, codes.OK, "OK")
 }
 
@@ -69,16 +73,19 @@ func (s *controller) CreateOrUpdateProduct(c *fiber.Ctx) error {
 func (s *controller) GetListProduct(c *fiber.Ctx) error {
 	res := models.ProductResponse{}
 
-	data, err := s.Services.ProductService.GetListProduct(c)
+	// Get Param
+	productTypeId, _ := strconv.Atoi(c.Query("typeId", "0"))
+	searchKeyword := c.Query("name", "")
+	sortField := c.Query("sort", "")
+	dir := strings.ToUpper(c.Query("dir", "ASC"))
+
+	data, err := s.Services.ProductService.GetListProduct(c, productTypeId, searchKeyword, sortField+" "+dir)
 	if err != nil {
 		return status.Errorf(c, codes.InternalServerError, err.Error())
 	}
 
 	res.Products = data
 
-	// delete redis
-	redisKey := "product:" + c.Params("id")
-	s.Rdb.Del(c.Context(), redisKey)
 	return c.Status(codes.OK).JSON(res)
 }
 
