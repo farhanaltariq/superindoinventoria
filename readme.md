@@ -23,7 +23,8 @@ API ini digunakan untuk menambahkan, mengambil, dan mengelola data produk di Sup
 
 1. **[POST] /product**
 
-    - Menambahkan data produk baru.
+    - Menambahkan data produk baru atau memperbarui data produk.
+    - Jika ID produk sudah ada, maka akan memperbarui data produk.
 
 2. **[GET] /products**
 
@@ -54,7 +55,7 @@ API ini digunakan untuk menambahkan, mengambil, dan mengelola data produk di Sup
 
 ### Catatan
 
-Kredensial default untuk login adalah:
+Kredensial default untuk login admin adalah:
 
 ```json
 {

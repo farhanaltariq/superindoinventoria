@@ -153,3 +153,27 @@ func RenameBaseUrlSwagger(baseUrl string) {
 	// Rename base URL in swagger.yaml
 	RenameBaseUrlInFile("docs/swagger.yaml", baseUrl)
 }
+
+func SetPagination(c *fiber.Ctx) models.Pagination {
+	page, err := strconv.Atoi(c.Query("page", "1"))
+	if err != nil {
+		page = 1
+	}
+	limit, err := strconv.Atoi(c.Query("limit", "10"))
+	if err != nil {
+		limit = 10
+	}
+	filter := c.Query("filter", "")
+	sort := c.Query("sort", "")
+	dir := strings.ToUpper(c.Query("dir", "ASC"))
+
+	return models.Pagination{
+		Page:       page,
+		Limit:      limit,
+		TotalRows:  0,
+		TotalPages: 0,
+		Filter:     filter,
+		Sort:       sort,
+		Dir:        dir,
+	}
+}

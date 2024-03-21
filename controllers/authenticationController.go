@@ -83,7 +83,6 @@ func (s *controller) Register(c *fiber.Ctx) error {
 // @Summary Login
 // @Description Login
 // @Tags Authentication
-// @Security Authorization
 // @Accept json
 // @Param data body models.Login true "Login Data"
 // @Produce json

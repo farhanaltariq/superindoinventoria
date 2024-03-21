@@ -14,9 +14,9 @@ func seedUserAuth(db *gorm.DB) {
 		UserType: "salt",
 	}
 
-	isExist := db.Debug().Where("username = ?", adminUser.Username).First(&adminUser).RowsAffected
+	isExist := db.Where("username = ?", adminUser.Username).First(&adminUser).RowsAffected
 	if isExist == 0 {
-		db.Debug().Create(&adminUser)
+		db.Create(&adminUser)
 	}
 
 	pass, salt := utils.Encrypt("password")
@@ -26,8 +26,8 @@ func seedUserAuth(db *gorm.DB) {
 		Salt:     salt,
 	}
 
-	auth := db.Debug().Where("user_id = ?", adminUser.ID).First(&adminAuth).RowsAffected
+	auth := db.Where("user_id = ?", adminUser.ID).First(&adminAuth).RowsAffected
 	if auth == 0 {
-		db.Debug().Create(&adminAuth)
+		db.Create(&adminAuth)
 	}
 }

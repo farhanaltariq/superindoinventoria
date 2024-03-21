@@ -27,6 +27,59 @@ definitions:
       usernameOrEmail:
         type: string
     type: object
+  models.Pagination:
+    properties:
+      dir:
+        type: string
+      filter:
+        type: string
+      limit:
+        type: integer
+      page:
+        type: integer
+      sort:
+        type: string
+      totalPages:
+        type: integer
+      totalRows:
+        type: integer
+    type: object
+  models.ProductData:
+    properties:
+      name:
+        type: string
+      price:
+        type: number
+      type:
+        $ref: '#/definitions/models.ProductTypeResponse'
+      typeID:
+        type: integer
+    type: object
+  models.ProductRequest:
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+      price:
+        type: number
+      typeId:
+        type: integer
+    type: object
+  models.ProductResponseExample:
+    properties:
+      pagination:
+        $ref: '#/definitions/models.Pagination'
+      products:
+        items:
+          $ref: '#/definitions/models.ProductData'
+        type: array
+    type: object
+  models.ProductTypeResponse:
+    properties:
+      name:
+        type: string
+    type: object
   models.Register:
     properties:
       confirmPassword:
@@ -76,8 +129,6 @@ paths:
           description: Bad Request
           schema:
             $ref: '#/definitions/common.ResponseMessage'
-      security:
-      - Authorization: []
       summary: Login
       tags:
       - Authentication
@@ -107,6 +158,99 @@ paths:
       summary: Register
       tags:
       - Authentication
+  /product:
+    get:
+      consumes:
+      - application/json
+      description: Get List Product
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.ProductResponseExample'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.ResponseMessage'
+      summary: Get Product
+      tags:
+      - Product
+    post:
+      consumes:
+      - application/json
+      description: Create Or Update Product
+      parameters:
+      - description: Product data
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/models.ProductRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.ProductResponseExample'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.ResponseMessage'
+      security:
+      - Authorization: []
+      summary: Create Or Update Product
+      tags:
+      - Product
+  /product/{id}:
+    delete:
+      description: Soft delete Product data
+      parameters:
+      - description: Product ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/common.ResponseMessage'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.ResponseMessage'
+      security:
+      - Authorization: []
+      summary: Delete Product
+      tags:
+      - Product
+    get:
+      description: Get Product By Id
+      parameters:
+      - description: Product ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.ProductResponseExample'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.ResponseMessage'
+      summary: Get Product Details
+      tags:
+      - Product
 schemes:
 - http
 - https
