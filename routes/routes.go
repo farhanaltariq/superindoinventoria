@@ -14,6 +14,5 @@ func Init(app *fiber.App) {
 
 	Authentications(api.Group("/auth"), services)
 
-	api.Use(middleware.AuthInterceptor)
-	User(api.Group("/user"), services)
+	Product(api.Group("/product"), services)
 }

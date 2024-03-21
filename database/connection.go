@@ -3,6 +3,7 @@ package database
 import (
 	"fmt"
 
+	"github.com/farhanaltariq/fiberplate/database/factory"
 	model "github.com/farhanaltariq/fiberplate/database/models"
 	"github.com/farhanaltariq/fiberplate/utils"
 
@@ -22,6 +23,8 @@ func AutoMigrate(db *gorm.DB) {
 	db.AutoMigrate(
 		&model.User{},
 		&model.Authentications{},
+		&model.Product{},
+		&model.ProductType{},
 	)
 }
 
@@ -52,7 +55,7 @@ func Connect() error {
 
 	AutoMigrate(db)
 	SetupDBConnection(db)
-	Seed()
+	factory.Seed(db)
 	return nil
 }
 

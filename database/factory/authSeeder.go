@@ -1,11 +1,12 @@
-package database
+package factory
 
 import (
 	"github.com/farhanaltariq/fiberplate/database/models"
 	"github.com/farhanaltariq/fiberplate/utils"
+	"gorm.io/gorm"
 )
 
-func seedUserAuth() {
+func seedUserAuth(db *gorm.DB) {
 	adminUser := models.User{
 		Username: "admin",
 		Email:    "admin@localhost",
@@ -29,8 +30,4 @@ func seedUserAuth() {
 	if auth == 0 {
 		db.Debug().Create(&adminAuth)
 	}
-}
-
-func Seed() {
-	seedUserAuth()
 }
