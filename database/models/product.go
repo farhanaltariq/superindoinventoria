@@ -29,6 +29,6 @@ type ProductResponseExample struct {
 }
 
 type ProductResponse struct {
-	Products   []Product
-	Pagination Pagination
+	Products []Product
+	// Pagination Pagination
 }

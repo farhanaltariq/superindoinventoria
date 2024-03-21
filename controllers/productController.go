@@ -3,12 +3,12 @@ package controllers
 import (
 	"encoding/json"
 	"strconv"
+	"time"
 
 	"github.com/farhanaltariq/fiberplate/common/codes"
 	"github.com/farhanaltariq/fiberplate/common/status"
 	"github.com/farhanaltariq/fiberplate/database/models"
 	"github.com/farhanaltariq/fiberplate/middleware"
-	"github.com/farhanaltariq/fiberplate/utils"
 	"github.com/gofiber/fiber/v2"
 	"gorm.io/gorm"
 )
@@ -68,7 +68,6 @@ func (s *controller) CreateOrUpdateProduct(c *fiber.Ctx) error {
 // @Router /product [get]
 func (s *controller) GetListProduct(c *fiber.Ctx) error {
 	res := models.ProductResponse{}
-	pagination := utils.SetPagination(c)
 
 	data, err := s.Services.ProductService.GetListProduct(c)
 	if err != nil {
@@ -76,7 +75,10 @@ func (s *controller) GetListProduct(c *fiber.Ctx) error {
 	}
 
 	res.Products = data
-	res.Pagination = pagination
+
+	// delete redis
+	redisKey := "product:" + c.Params("id")
+	s.Rdb.Del(c.Context(), redisKey)
 	return c.Status(codes.OK).JSON(res)
 }
 
@@ -95,6 +97,10 @@ func (s *controller) DeleteProduct(c *fiber.Ctx) error {
 		return status.Errorf(c, codes.InternalServerError, err.Error())
 	}
 
+	// delete redis
+	redisKey := "product:" + c.Params("id")
+	s.Rdb.Del(c.Context(), redisKey)
+
 	err = s.Services.ProductService.DeleteProduct(id)
 	if err != nil {
 		return status.Errorf(c, codes.InternalServerError, err.Error())
@@ -111,13 +117,26 @@ func (s *controller) DeleteProduct(c *fiber.Ctx) error {
 // @Failure 400 {object} common.ResponseMessage
 // @Router /product/{id} [get]
 func (s *controller) GetProductById(c *fiber.Ctx) error {
+	res := models.ProductResponse{}
 	id, err := strconv.Atoi(c.Params("id"))
 	if err != nil {
 		return status.Errorf(c, codes.InternalServerError, err.Error())
 	}
-	res, err := s.Services.ProductService.GetProductById(uint(id))
+
+	redisKey := "product:" + c.Params("id")
+	redisData, _ := s.Rdb.Get(c.Context(), redisKey)
+	if redisData != "" {
+		if err := json.Unmarshal([]byte(redisData), &res); err != nil {
+			return status.Errorf(c, codes.InternalServerError, err.Error())
+		}
+		return c.Status(codes.OK).JSON(res)
+	}
+
+	res, err = s.Services.ProductService.GetProductById(uint(id))
 	if err != nil {
 		return status.Errorf(c, codes.InternalServerError, err.Error())
 	}
+
+	s.Rdb.Set(c.Context(), redisKey, res, 24*time.Hour)
 	return c.Status(codes.OK).JSON(res)
 }

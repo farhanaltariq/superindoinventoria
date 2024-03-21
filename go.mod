@@ -13,7 +13,11 @@ require (
 	gorm.io/gorm v1.25.7-0.20240204074919-46816ad31dde
 )
 
-require github.com/go-sql-driver/mysql v1.7.0 // indirect
+require (
+	github.com/cespare/xxhash/v2 v2.1.2 // indirect
+	github.com/dgryski/go-rendezvous v0.0.0-20200823014737-9f7001d12a5f // indirect
+	github.com/go-sql-driver/mysql v1.7.0 // indirect
+)
 
 require (
 	github.com/KyleBanks/depth v1.2.1 // indirect
@@ -24,6 +28,7 @@ require (
 	github.com/go-openapi/jsonreference v0.20.4 // indirect
 	github.com/go-openapi/spec v0.20.13 // indirect
 	github.com/go-openapi/swag v0.22.7 // indirect
+	github.com/go-redis/redis/v8 v8.11.5
 	github.com/go-task/slim-sprig v0.0.0-20230315185526-52ccab3ef572 // indirect
 	github.com/golang-jwt/jwt v3.2.2+incompatible
 	github.com/golang-jwt/jwt/v4 v4.5.0

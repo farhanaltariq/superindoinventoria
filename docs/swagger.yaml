@@ -233,7 +233,7 @@ paths:
             $ref: '#/definitions/common.ResponseMessage'
       security:
       - Authorization: []
-      summary: DeleteProduct Product
+      summary: Delete Product
       tags:
       - Product
     get:

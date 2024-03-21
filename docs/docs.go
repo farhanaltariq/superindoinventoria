@@ -222,7 +222,7 @@ const docTemplate = `{
                 "tags": [
                     "Product"
                 ],
-                "summary": "DeleteProduct Product",
+                "summary": "Delete Product",
                 "parameters": [
                     {
                         "type": "integer",
