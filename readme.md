@@ -64,8 +64,7 @@ Untuk dokumentasi lebih rinci, dapat diakses melalui endpoint `/api/swagger` ata
 1. Pastikan Anda telah menginstal Go dan Redis di sistem Anda.
 2. Buatlah database sesuai kebutuhan, dan konfigurasikan koneksi database di file konfigurasi.
 3. Pastikan Redis telah berjalan dan dikonfigurasi dengan benar.
-4. Mulailah proyek dengan menjalankan `go run main.go`.
-5. Pastikan untuk mendokumentasikan setiap langkah dan konfigurasi yang diambil dalam repository GitHub Anda.
+4. Mulailah proyek dengan menjalankan `make run`.
 
 ### Catatan
 
